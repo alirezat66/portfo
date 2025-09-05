@@ -32,7 +32,7 @@ class ProfileInfoHighlight extends StatelessWidget {
               height: 1.1,
             ),
             children: [
-              const TextSpan(text: "I'm James Parker"),
+              const TextSpan(text: "I'm Reza Taghizadeh"),
               TextSpan(
                 text: ".\n",
                 style: TextStyle(color: context.surfaceBrandColor),
