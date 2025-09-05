@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/widgets/profile_highlights.dart';
+import 'package:portfolio/widgets/profile_image.dart';
 import '../../../core/di/service_locator.dart';
 import '../../../core/models/availability_status.dart';
 import '../../../widgets/availability_widget.dart';
@@ -33,25 +35,11 @@ class HomeView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Center(
-                  child: Column(
-                    children: [
-                      Text(
-                        'Welcome to My Portfolio',
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(height: 16),
-                      Text(
-                        'This is the home page content',
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xFFB3B3B3)),
-                      ),
-                    ],
-                  ),
+                Row(
+                  children: [
+                    ProfileHighlights(),
+                    ProfileImage(),
+                  ],
                 ),
                 const SizedBox(height: 48),
                 const Text(
