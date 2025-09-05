@@ -52,7 +52,7 @@ class ProfileInfoHighlight extends StatelessWidget {
           ),
         ),
         Text(
-          "Empowering Ideas Through End-to-End\nDevelopment Expertise and Seamless User\nInterfaces",
+          "I love structured code and clean design. I'm a senior flutter developer with a passion for building mobile apps. With more than 15 years of experience in the field, I'm a master of my craft and I'm always looking for new challenges and opportunities to grow.",
           textAlign: context.isDesktop || context.isLaptop
               ? TextAlign.start
               : TextAlign.center,
