@@ -19,6 +19,7 @@ dependencies:
   build_runner: ^2.4.13
   flutter_gen_runner: ^5.10.0
   flutter_physics: ^0.2.0
+  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_test:

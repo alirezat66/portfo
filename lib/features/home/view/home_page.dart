@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/widgets/profile_highlights.dart';
-import 'package:portfolio/widgets/profile_image.dart';
+import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/features/home/spotlight/spotlight_view.dart';
+import 'package:portfolio/features/home/spotlight/widgets/profile_highlights.dart';
+import 'package:portfolio/features/home/spotlight/widgets/profile_image.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 import '../../../core/di/service_locator.dart';
 import '../../../core/models/availability_status.dart';
@@ -36,15 +38,7 @@ class HomeView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 24),
-                  Row(
-                    children: [
-                      Expanded(child: ProfileHighlights()),
-                      const SizedBox(width: 40),
-                      ProfileImage(),
-                    ],
-                  ),
-                  const SizedBox(height: 48),
+                  const SpotlightView(),
                   const Text(
                     'Availability Widget Showcase',
                     style: TextStyle(
@@ -54,7 +48,7 @@ class HomeView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  _buildAvailabilityShowcase(),
+                  _buildAvailabilityShowcase(context),
                   const SizedBox(height: 24),
                 ],
               ),
@@ -66,7 +60,7 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget _buildAvailabilityShowcase() {
+  Widget _buildAvailabilityShowcase(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -75,6 +69,7 @@ class HomeView extends StatelessWidget {
           [
             const AvailabilityWidget(status: AvailabilityStatus.available),
           ],
+          context,
         ),
         const SizedBox(height: 32),
         _buildSection(
@@ -83,28 +78,33 @@ class HomeView extends StatelessWidget {
             const AvailabilityWidget(
                 status: AvailabilityStatus.partiallyAvailable),
           ],
+          context,
         ),
         const SizedBox(height: 32),
         _buildSection(
           'Fully Busy',
           [
-            const AvailabilityWidget(status: AvailabilityStatus.fullyBusy),
+            const AvailabilityWidget(
+              status: AvailabilityStatus.fullyBusy,
+            ),
           ],
+          context,
         ),
       ],
     );
   }
 
-  Widget _buildSection(String title, List<Widget> widgets) {
+  Widget _buildSection(
+      String title, List<Widget> widgets, BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w600,
-            color: Colors.white,
+            color: context.colorScheme.onSurface,
           ),
         ),
         const SizedBox(height: 16),

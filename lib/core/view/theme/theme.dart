@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const Color primaryColor = Color(0xFF1A1A1A);
@@ -16,6 +17,30 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
+      textTheme: GoogleFonts.nunitoTextTheme(
+        ThemeData.dark().textTheme.copyWith(
+              headlineLarge: GoogleFonts.nunito(
+                color: textPrimaryColor,
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+              ),
+              headlineMedium: GoogleFonts.nunito(
+                color: textPrimaryColor,
+                fontSize: 24,
+                fontWeight: FontWeight.w600,
+              ),
+              bodyLarge: GoogleFonts.nunito(
+                color: textPrimaryColor,
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+              ),
+              bodyMedium: GoogleFonts.nunito(
+                color: textSecondaryColor,
+                fontSize: 14,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+      ),
       colorScheme: const ColorScheme.dark(
         primary: primaryColor,
         surface: surfaceColor,
@@ -26,16 +51,16 @@ class AppTheme {
         inverseSurface: surfaceInvert,
       ),
       scaffoldBackgroundColor: backgroundColor,
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
-        titleTextStyle: TextStyle(
+        titleTextStyle: GoogleFonts.nunito(
           color: textPrimaryColor,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
-        iconTheme: IconThemeData(color: textPrimaryColor),
+        iconTheme: const IconThemeData(color: textPrimaryColor),
       ),
       inputDecorationTheme: InputDecorationTheme(
         fillColor: tertiaryColor,
@@ -43,28 +68,6 @@ class AppTheme {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide.none,
-        ),
-      ),
-      textTheme: const TextTheme(
-        headlineLarge: TextStyle(
-          color: textPrimaryColor,
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-        ),
-        headlineMedium: TextStyle(
-          color: textPrimaryColor,
-          fontSize: 24,
-          fontWeight: FontWeight.w600,
-        ),
-        bodyLarge: TextStyle(
-          color: textPrimaryColor,
-          fontSize: 16,
-          fontWeight: FontWeight.normal,
-        ),
-        bodyMedium: TextStyle(
-          color: textSecondaryColor,
-          fontSize: 14,
-          fontWeight: FontWeight.normal,
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
