@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/features/companies/company_list_view.dart';
 import 'package:portfolio/features/home/spotlight/spotlight_view.dart';
 import 'package:portfolio/features/home/spotlight/widgets/profile_highlights.dart';
 import 'package:portfolio/features/home/spotlight/widgets/profile_image.dart';
@@ -37,19 +38,10 @@ class HomeView extends StatelessWidget {
             child: ResponsiveContent(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 40,
                 children: [
                   const SpotlightView(),
-                  const Text(
-                    'Availability Widget Showcase',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  _buildAvailabilityShowcase(context),
-                  const SizedBox(height: 24),
+                  const CompanyListView(),
                 ],
               ),
             ),

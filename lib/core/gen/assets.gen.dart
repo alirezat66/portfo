@@ -33,6 +33,9 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// Directory path: assets/images/companies
+  $AssetsImagesCompaniesGen get companies => const $AssetsImagesCompaniesGen();
+
   /// File path: assets/images/profile_image.png
   AssetGenImage get profileImage =>
       const AssetGenImage('assets/images/profile_image.png');
@@ -43,6 +46,54 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [profileImage, profileImageHover];
+}
+
+class $AssetsImagesCompaniesGen {
+  const $AssetsImagesCompaniesGen();
+
+  /// File path: assets/images/companies/armancoders.png
+  AssetGenImage get armancoders =>
+      const AssetGenImage('assets/images/companies/armancoders.png');
+
+  /// File path: assets/images/companies/delta.png
+  AssetGenImage get delta =>
+      const AssetGenImage('assets/images/companies/delta.png');
+
+  /// File path: assets/images/companies/igmu.jpeg
+  AssetGenImage get igmuJpeg =>
+      const AssetGenImage('assets/images/companies/igmu.jpeg');
+
+  /// File path: assets/images/companies/igmu.png
+  AssetGenImage get igmuPng =>
+      const AssetGenImage('assets/images/companies/igmu.png');
+
+  /// File path: assets/images/companies/itboost.png
+  AssetGenImage get itboost =>
+      const AssetGenImage('assets/images/companies/itboost.png');
+
+  /// File path: assets/images/companies/moebel.png
+  AssetGenImage get moebel =>
+      const AssetGenImage('assets/images/companies/moebel.png');
+
+  /// File path: assets/images/companies/remote_derm.png
+  AssetGenImage get remoteDerm =>
+      const AssetGenImage('assets/images/companies/remote_derm.png');
+
+  /// File path: assets/images/companies/tuktoro.png
+  AssetGenImage get tuktoro =>
+      const AssetGenImage('assets/images/companies/tuktoro.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        armancoders,
+        delta,
+        igmuJpeg,
+        igmuPng,
+        itboost,
+        moebel,
+        remoteDerm,
+        tuktoro
+      ];
 }
 
 class Assets {
