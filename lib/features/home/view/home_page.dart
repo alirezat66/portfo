@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/widgets/profile_highlights.dart';
 import 'package:portfolio/widgets/profile_image.dart';
+import 'package:portfolio/widgets/responsive_content.dart';
 import '../../../core/di/service_locator.dart';
 import '../../../core/models/availability_status.dart';
 import '../../../widgets/availability_widget.dart';
@@ -31,28 +32,32 @@ class HomeView extends StatelessWidget {
       body: Stack(
         children: [
           SingleChildScrollView(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    ProfileHighlights(),
-                    ProfileImage(),
-                  ],
-                ),
-                const SizedBox(height: 48),
-                const Text(
-                  'Availability Widget Showcase',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+            child: ResponsiveContent(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 24),
+                  Row(
+                    children: [
+                      Expanded(child: ProfileHighlights()),
+                      const SizedBox(width: 40),
+                      ProfileImage(),
+                    ],
                   ),
-                ),
-                const SizedBox(height: 24),
-                _buildAvailabilityShowcase(),
-              ],
+                  const SizedBox(height: 48),
+                  const Text(
+                    'Availability Widget Showcase',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  _buildAvailabilityShowcase(),
+                  const SizedBox(height: 24),
+                ],
+              ),
             ),
           ),
           const MobileMenuDrawer(),
