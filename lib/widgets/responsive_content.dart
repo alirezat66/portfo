@@ -31,23 +31,23 @@ class ResponsiveContent extends StatelessWidget {
 
   ResponsiveConfig _getResponsiveConfig(double screenWidth) {
     if (screenWidth >= 1440) {
-      // Big screens (1440px+) - Stop growing, maintain max width
+      // Desktop (1440px+) - Stop growing, maintain max width
       return ResponsiveConfig(
-        breakpoint: ResponsiveBreakpoint.bigScreen,
+        breakpoint: ResponsiveBreakpoint.desktop,
         maxWidth: 1400, // Max content width
         defaultPadding:
             const EdgeInsets.symmetric(horizontal: 60, vertical: 24),
       );
     } else if (screenWidth >= 1024) {
-      // Desktop (1024px - 1439px)
+      // Laptop (1024px - 1439px)
       return ResponsiveConfig(
-        breakpoint: ResponsiveBreakpoint.desktop,
+        breakpoint: ResponsiveBreakpoint.laptop,
         maxWidth: screenWidth * 0.9, // 90% of screen width
         defaultPadding:
             const EdgeInsets.symmetric(horizontal: 48, vertical: 20),
       );
-    } else if (screenWidth >= 768) {
-      // Tablet (768px - 1023px)
+    } else if (screenWidth >= 810) {
+      // Tablet (810px - 1023px)
       return ResponsiveConfig(
         breakpoint: ResponsiveBreakpoint.tablet,
         maxWidth: screenWidth * 0.95, // 95% of screen width
@@ -55,7 +55,7 @@ class ResponsiveContent extends StatelessWidget {
             const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
       );
     } else {
-      // Mobile (< 768px)
+      // Mobile (< 810px)
       return ResponsiveConfig(
         breakpoint: ResponsiveBreakpoint.mobile,
         maxWidth: screenWidth, // Full width
@@ -67,10 +67,10 @@ class ResponsiveContent extends StatelessWidget {
 }
 
 enum ResponsiveBreakpoint {
-  mobile, // < 768px
-  tablet, // 768px - 1023px
-  desktop, // 1024px - 1439px
-  bigScreen, // 1440px+
+  mobile, // < 810px
+  tablet, // 810px - 1023px
+  laptop, // 1024px - 1439px
+  desktop, // 1440px+
 }
 
 class ResponsiveConfig {
@@ -89,14 +89,14 @@ class ResponsiveConfig {
 extension ResponsiveExtension on BuildContext {
   ResponsiveBreakpoint get breakpoint {
     final screenWidth = MediaQuery.of(this).size.width;
-    if (screenWidth >= 1440) return ResponsiveBreakpoint.bigScreen;
-    if (screenWidth >= 1024) return ResponsiveBreakpoint.desktop;
-    if (screenWidth >= 768) return ResponsiveBreakpoint.tablet;
+    if (screenWidth >= 1440) return ResponsiveBreakpoint.desktop;
+    if (screenWidth >= 1024) return ResponsiveBreakpoint.laptop;
+    if (screenWidth >= 810) return ResponsiveBreakpoint.tablet;
     return ResponsiveBreakpoint.mobile;
   }
 
   bool get isMobile => breakpoint == ResponsiveBreakpoint.mobile;
   bool get isTablet => breakpoint == ResponsiveBreakpoint.tablet;
+  bool get isLaptop => breakpoint == ResponsiveBreakpoint.laptop;
   bool get isDesktop => breakpoint == ResponsiveBreakpoint.desktop;
-  bool get isBigScreen => breakpoint == ResponsiveBreakpoint.bigScreen;
 }
