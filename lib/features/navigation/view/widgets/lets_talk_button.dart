@@ -9,11 +9,11 @@ class LetsTalkButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFF404040), width: 1),
+        color: context.colorScheme.inverseSurface,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Material(
-        color: context.colorScheme.onSurface,
+        color: context.colorScheme.inverseSurface,
         borderRadius: BorderRadius.circular(8),
         child: InkWell(
           borderRadius: BorderRadius.circular(8),

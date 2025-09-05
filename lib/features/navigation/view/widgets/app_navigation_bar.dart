@@ -26,8 +26,8 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
             padding: isDesktop
                 ? const EdgeInsets.symmetric(horizontal: 48.0)
                 : isTablet
-                ? const EdgeInsets.symmetric(horizontal: 24)
-                : const EdgeInsets.symmetric(horizontal: 16),
+                    ? const EdgeInsets.symmetric(horizontal: 24)
+                    : const EdgeInsets.symmetric(horizontal: 16),
             duration: const Duration(milliseconds: 300),
             child: Container(
               width: double.infinity,
@@ -46,7 +46,7 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
                       },
                       child: CircleAvatar(
                         radius: 28,
-                        backgroundColor: context.colorScheme.onSurface,
+                        backgroundColor: context.colorScheme.inverseSurface,
                         child: Icon(
                           Icons.home,
                           color: context.colorScheme.surface,
@@ -58,6 +58,7 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
                     const NavigationMenuItems(),
                     if (isDesktop) ...[
                       const Spacer(),
+                      const SizedBox(width: 24),
                       const SearchBarWidget(),
                       const Spacer(),
                       const SocialMediaIcons(),
@@ -65,6 +66,7 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
                       const LetsTalkButton(),
                     ] else if (isTablet) ...[
                       const Spacer(),
+                      const SizedBox(width: 16),
                       const LetsTalkButton(),
                       const SizedBox(width: 16),
                       IconButton(

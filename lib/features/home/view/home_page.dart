@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/di/service_locator.dart';
+import '../../../core/models/availability_status.dart';
+import '../../../widgets/availability_widget.dart';
 import '../../navigation/view_model/bloc/navigation_cubit.dart';
 import '../../navigation/view/widgets/app_navigation_bar.dart';
 import '../../navigation/view/widgets/mobile_menu_drawer.dart';
@@ -26,23 +28,42 @@ class HomeView extends StatelessWidget {
       appBar: const AppNavigationBar(),
       body: Stack(
         children: [
-          const Center(
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(24),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Welcome to My Portfolio',
+                const Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        'Welcome to My Portfolio',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      Text(
+                        'This is the home page content',
+                        style:
+                            TextStyle(fontSize: 16, color: Color(0xFFB3B3B3)),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 48),
+                const Text(
+                  'Availability Widget Showcase',
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 16),
-                Text(
-                  'This is the home page content',
-                  style: TextStyle(fontSize: 16, color: Color(0xFFB3B3B3)),
-                ),
+                const SizedBox(height: 24),
+                _buildAvailabilityShowcase(),
               ],
             ),
           ),
@@ -51,6 +72,55 @@ class HomeView extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildAvailabilityShowcase() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildSection(
+          'Available for Work',
+          [
+            const AvailabilityWidget(status: AvailabilityStatus.available),
+          ],
+        ),
+        const SizedBox(height: 32),
+        _buildSection(
+          'Partially Available',
+          [
+            const AvailabilityWidget(
+                status: AvailabilityStatus.partiallyAvailable),
+          ],
+        ),
+        const SizedBox(height: 32),
+        _buildSection(
+          'Fully Busy',
+          [
+            const AvailabilityWidget(status: AvailabilityStatus.fullyBusy),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSection(String title, List<Widget> widgets) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Wrap(
+          spacing: 16,
+          runSpacing: 16,
+          children: widgets,
+        ),
+      ],
+    );
+  }
 }
-
-

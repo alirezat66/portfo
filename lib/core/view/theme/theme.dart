@@ -6,10 +6,12 @@ class AppTheme {
   static const Color surfaceColor = Color(0xFF262626);
   static const Color tertiaryColor = Color(0xFF525252);
   static const Color textPrimaryColor = Color(0xFFFFFFFF);
-  static const Color textSecondaryColor = Color(0xFFB3B3B3);
+  static const Color textSecondaryColor = Color(0xFFA3A3A3);
   static const Color textTertiaryColor = Color(0xFFF5F5F5);
+  static const Color surfaceInvert = Color(0xFFE5E5E5);
   static const Color accentColor = Color(0xFF4A9EFF);
-
+  static const Color surfaceBrandColor = Color(0xFFFDBA72);
+  static const Color surfaceBrandSecondary = Color(0xFFB9925F);
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
@@ -19,8 +21,9 @@ class AppTheme {
         surface: surfaceColor,
         tertiary: tertiaryColor,
         onPrimary: textPrimaryColor,
-        onSurface: textPrimaryColor,
+        onSurface: textSecondaryColor,
         onTertiary: textTertiaryColor,
+        inverseSurface: surfaceInvert,
       ),
       scaffoldBackgroundColor: backgroundColor,
       appBarTheme: const AppBarTheme(
@@ -34,17 +37,14 @@ class AppTheme {
         ),
         iconTheme: IconThemeData(color: textPrimaryColor),
       ),
-
       inputDecorationTheme: InputDecorationTheme(
         fillColor: tertiaryColor,
         filled: true,
-        
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: BorderSide.none,
         ),
       ),
-
       textTheme: const TextTheme(
         headlineLarge: TextStyle(
           color: textPrimaryColor,
