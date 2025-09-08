@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/widgets/responsive_content.dart';
 
 class GlowCard extends StatefulWidget {
   final VoidCallback? onTap;
@@ -28,64 +29,74 @@ class _GlowCardState extends State<GlowCard> {
 
   @override
   Widget build(BuildContext context) {
+    // Disable hover effects on mobile and tablet
+    final bool enableHover = context.isDesktop || context.isLaptop;
+    
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child: MouseRegion(
-        onEnter: (_) {
-          setState(() {
-            _isHovered = true;
-          });
-        },
-        onExit: (_) {
-          setState(() {
-            _isHovered = false;
-          });
-        },
-        onHover: (event) {
-          setState(() {
-            final RenderBox box = context.findRenderObject() as RenderBox;
-            final localPosition = box.globalToLocal(event.position);
-            _pointerPosition =
-                localPosition - Offset(box.size.width / 2, box.size.height / 2);
-          });
-        },
-        child: Stack(
-          children: [
-            // Card with static border
-            GestureDetector(
-              onTap: () => widget.onTap?.call(),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: context.basicColors.backgroundColor,
-                  borderRadius:
-                      BorderRadius.circular(widget.borderRadius ?? 16),
-                  border: Border.all(
-                    color: widget.borderColor ??
-                        context.basicColors.surfaceBrandColor,
-                    width: widget.borderWidth ?? 3,
-                  ),
-                ),
-                child: widget.child,
+      child: enableHover
+          ? MouseRegion(
+              onEnter: (_) {
+                setState(() {
+                  _isHovered = true;
+                });
+              },
+              onExit: (_) {
+                setState(() {
+                  _isHovered = false;
+                });
+              },
+              onHover: (event) {
+                setState(() {
+                  final RenderBox box = context.findRenderObject() as RenderBox;
+                  final localPosition = box.globalToLocal(event.position);
+                  _pointerPosition =
+                      localPosition - Offset(box.size.width / 2, box.size.height / 2);
+                });
+              },
+              child: _buildCardContent(context, enableHover),
+            )
+          : _buildCardContent(context, enableHover),
+    );
+  }
+
+  Widget _buildCardContent(BuildContext context, bool enableHover) {
+    return Stack(
+      children: [
+        // Card with static border
+        GestureDetector(
+          onTap: () => widget.onTap?.call(),
+          child: Container(
+            decoration: BoxDecoration(
+              color: context.basicColors.backgroundColor,
+              borderRadius:
+                  BorderRadius.circular(widget.borderRadius ?? 16),
+              border: Border.all(
+                color: widget.borderColor ??
+                    context.basicColors.surfaceBrandColor,
+                width: widget.borderWidth ?? 3,
               ),
             ),
-            // Glow effect
-            Positioned.fill(
-              child: AnimatedOpacity(
-                opacity: _isHovered ? 1.0 : 0.0,
-                duration: const Duration(milliseconds: 500),
-                child: CustomPaint(
-                  painter: GlowPainter(
-                    pointerPosition: _pointerPosition,
-                    color: context.basicColors
-                        .surfaceBrandColor, // #FFFDBA72 with 45% opacity
-                  ),
-                  child: Container(),
-                ),
-              ),
-            ),
-          ],
+            child: widget.child,
+          ),
         ),
-      ),
+        // Glow effect (only on desktop/laptop)
+        if (enableHover)
+          Positioned.fill(
+            child: AnimatedOpacity(
+              opacity: _isHovered ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 500),
+              child: CustomPaint(
+                painter: GlowPainter(
+                  pointerPosition: _pointerPosition,
+                  color: context.basicColors
+                      .surfaceBrandColor, // #FFFDBA72 with 45% opacity
+                ),
+                child: Container(),
+              ),
+            ),
+          ),
+      ],
     );
   }
 }

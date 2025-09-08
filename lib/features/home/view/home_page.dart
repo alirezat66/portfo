@@ -8,6 +8,7 @@ import 'package:portfolio/features/home/spotlight/widgets/profile_highlights.dar
 import 'package:portfolio/features/home/spotlight/widgets/profile_image.dart';
 import 'package:portfolio/features/projects/widgets/latest_projects_section.dart';
 import 'package:portfolio/features/testimonial/view/testimonial_view.dart';
+import 'package:portfolio/features/articles/widgets/latest_articles_section.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 import '../../../core/di/service_locator.dart';
 import '../../../core/models/availability_status.dart';
@@ -47,6 +48,7 @@ class HomeView extends StatelessWidget {
                   const CompanyListView(),
                   const LatestProjectsSection(),
                   const TestimonialView(),
+                  const LatestArticlesSection(),
                 ],
               ),
             ),
