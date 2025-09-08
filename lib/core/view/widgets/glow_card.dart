@@ -31,7 +31,7 @@ class _GlowCardState extends State<GlowCard> {
   Widget build(BuildContext context) {
     // Disable hover effects on mobile and tablet
     final bool enableHover = context.isDesktop || context.isLaptop;
-    
+
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: enableHover
@@ -50,8 +50,8 @@ class _GlowCardState extends State<GlowCard> {
                 setState(() {
                   final RenderBox box = context.findRenderObject() as RenderBox;
                   final localPosition = box.globalToLocal(event.position);
-                  _pointerPosition =
-                      localPosition - Offset(box.size.width / 2, box.size.height / 2);
+                  _pointerPosition = localPosition -
+                      Offset(box.size.width / 2, box.size.height / 2);
                 });
               },
               child: _buildCardContent(context, enableHover),
@@ -69,11 +69,10 @@ class _GlowCardState extends State<GlowCard> {
           child: Container(
             decoration: BoxDecoration(
               color: context.basicColors.backgroundColor,
-              borderRadius:
-                  BorderRadius.circular(widget.borderRadius ?? 16),
+              borderRadius: BorderRadius.circular(widget.borderRadius ?? 16),
               border: Border.all(
-                color: widget.borderColor ??
-                    context.basicColors.surfaceBrandColor,
+                color:
+                    widget.borderColor ?? context.basicColors.surfaceBrandColor,
                 width: widget.borderWidth ?? 3,
               ),
             ),

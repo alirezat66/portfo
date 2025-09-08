@@ -12,11 +12,11 @@ extension IncreaseHoverExt on Widget {
       builder: (context, setState) {
         // Disable hover effects on mobile and tablet
         final bool enableHover = context.isDesktop || context.isLaptop;
-        
+
         if (!enableHover) {
           return this; // Return widget without hover effects
         }
-        
+
         bool isHovered = false;
         return MouseRegion(
           cursor: SystemMouseCursors.click,
@@ -34,7 +34,6 @@ extension IncreaseHoverExt on Widget {
             duration: duration,
             curve: Curves.easeInOut,
             transformAlignment: Alignment.center,
-            
             transform: isHovered
                 ? Matrix4.diagonal3Values(scaleFactor, scaleFactor, 1.0)
                 : Matrix4.diagonal3Values(1.0, 1.0, 1.0),
@@ -56,9 +55,16 @@ extension IncreaseHoverExt on Widget {
       'Current widget type: $runtimeType',
     );
 
-    bool isHovered = false;
     return StatefulBuilder(
       builder: (context, setState) {
+        // Disable hover effects on mobile and tablet
+        final bool enableHover = context.isDesktop || context.isLaptop;
+
+        if (!enableHover) {
+          return this; // Return widget without hover effects
+        }
+
+        bool isHovered = false;
         return MouseRegion(
           cursor: SystemMouseCursors.click,
           onEnter: (event) {
