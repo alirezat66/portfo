@@ -36,6 +36,17 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/images/companies/
+    - assets/images/works/
+    - assets/images/works/fydez/
+    - assets/images/works/loyalmate/
+    - assets/images/works/moebel/
+    - assets/images/works/remotederm/
+    - assets/images/works/moebel/
+    - assets/images/works/oraclium/
+  fonts:
+    - family: Zodiak
+      fonts:
+        - asset: assets/fonts/Zodiak-Variable.ttf
 flutter_gen:
   output: lib/core/gen/ 
   line_length: 80 

@@ -44,6 +44,9 @@ class $AssetsImagesGen {
   AssetGenImage get profileImageHover =>
       const AssetGenImage('assets/images/profile_image_hover.png');
 
+  /// Directory path: assets/images/works
+  $AssetsImagesWorksGen get works => const $AssetsImagesWorksGen();
+
   /// List of all assets
   List<AssetGenImage> get values => [profileImage, profileImageHover];
 }
@@ -59,12 +62,8 @@ class $AssetsImagesCompaniesGen {
   AssetGenImage get delta =>
       const AssetGenImage('assets/images/companies/delta.png');
 
-  /// File path: assets/images/companies/igmu.jpeg
-  AssetGenImage get igmuJpeg =>
-      const AssetGenImage('assets/images/companies/igmu.jpeg');
-
   /// File path: assets/images/companies/igmu.png
-  AssetGenImage get igmuPng =>
+  AssetGenImage get igmu =>
       const AssetGenImage('assets/images/companies/igmu.png');
 
   /// File path: assets/images/companies/itboost.png
@@ -84,16 +83,127 @@ class $AssetsImagesCompaniesGen {
       const AssetGenImage('assets/images/companies/tuktoro.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
-        armancoders,
-        delta,
-        igmuJpeg,
-        igmuPng,
-        itboost,
-        moebel,
-        remoteDerm,
-        tuktoro
-      ];
+  List<AssetGenImage> get values =>
+      [armancoders, delta, igmu, itboost, moebel, remoteDerm, tuktoro];
+}
+
+class $AssetsImagesWorksGen {
+  const $AssetsImagesWorksGen();
+
+  /// Directory path: assets/images/works/fydez
+  $AssetsImagesWorksFydezGen get fydez => const $AssetsImagesWorksFydezGen();
+
+  /// Directory path: assets/images/works/loyalmate
+  $AssetsImagesWorksLoyalmateGen get loyalmate =>
+      const $AssetsImagesWorksLoyalmateGen();
+
+  /// Directory path: assets/images/works/moebel
+  $AssetsImagesWorksMoebelGen get moebel => const $AssetsImagesWorksMoebelGen();
+
+  /// Directory path: assets/images/works/oraclium
+  $AssetsImagesWorksOracliumGen get oraclium =>
+      const $AssetsImagesWorksOracliumGen();
+
+  /// Directory path: assets/images/works/remotederm
+  $AssetsImagesWorksRemotedermGen get remotederm =>
+      const $AssetsImagesWorksRemotedermGen();
+}
+
+class $AssetsImagesWorksFydezGen {
+  const $AssetsImagesWorksFydezGen();
+
+  /// File path: assets/images/works/fydez/fydez_main.png
+  AssetGenImage get fydezMain =>
+      const AssetGenImage('assets/images/works/fydez/fydez_main.png');
+
+  /// File path: assets/images/works/fydez/fydez_second.png
+  AssetGenImage get fydezSecond =>
+      const AssetGenImage('assets/images/works/fydez/fydez_second.png');
+
+  /// File path: assets/images/works/fydez/fydez_three.png
+  AssetGenImage get fydezThree =>
+      const AssetGenImage('assets/images/works/fydez/fydez_three.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [fydezMain, fydezSecond, fydezThree];
+}
+
+class $AssetsImagesWorksLoyalmateGen {
+  const $AssetsImagesWorksLoyalmateGen();
+
+  /// File path: assets/images/works/loyalmate/loyalmate_main.png
+  AssetGenImage get loyalmateMain =>
+      const AssetGenImage('assets/images/works/loyalmate/loyalmate_main.png');
+
+  /// File path: assets/images/works/loyalmate/loyalmate_second.png
+  AssetGenImage get loyalmateSecond =>
+      const AssetGenImage('assets/images/works/loyalmate/loyalmate_second.png');
+
+  /// File path: assets/images/works/loyalmate/loyalmate_three.png
+  AssetGenImage get loyalmateThree =>
+      const AssetGenImage('assets/images/works/loyalmate/loyalmate_three.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [loyalmateMain, loyalmateSecond, loyalmateThree];
+}
+
+class $AssetsImagesWorksMoebelGen {
+  const $AssetsImagesWorksMoebelGen();
+
+  /// File path: assets/images/works/moebel/moebel_main.png
+  AssetGenImage get moebelMain =>
+      const AssetGenImage('assets/images/works/moebel/moebel_main.png');
+
+  /// File path: assets/images/works/moebel/moebel_third.png
+  AssetGenImage get moebelThird =>
+      const AssetGenImage('assets/images/works/moebel/moebel_third.png');
+
+  /// File path: assets/images/works/moebel/moebel_two.png
+  AssetGenImage get moebelTwo =>
+      const AssetGenImage('assets/images/works/moebel/moebel_two.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [moebelMain, moebelThird, moebelTwo];
+}
+
+class $AssetsImagesWorksOracliumGen {
+  const $AssetsImagesWorksOracliumGen();
+
+  /// File path: assets/images/works/oraclium/oraclium_main.png
+  AssetGenImage get oracliumMain =>
+      const AssetGenImage('assets/images/works/oraclium/oraclium_main.png');
+
+  /// File path: assets/images/works/oraclium/oraclium_three.png
+  AssetGenImage get oracliumThree =>
+      const AssetGenImage('assets/images/works/oraclium/oraclium_three.png');
+
+  /// File path: assets/images/works/oraclium/oraclium_two.png
+  AssetGenImage get oracliumTwo =>
+      const AssetGenImage('assets/images/works/oraclium/oraclium_two.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [oracliumMain, oracliumThree, oracliumTwo];
+}
+
+class $AssetsImagesWorksRemotedermGen {
+  const $AssetsImagesWorksRemotedermGen();
+
+  /// File path: assets/images/works/remotederm/oraclium_three.png
+  AssetGenImage get oracliumThree =>
+      const AssetGenImage('assets/images/works/remotederm/oraclium_three.png');
+
+  /// File path: assets/images/works/remotederm/remotederm_main.png
+  AssetGenImage get remotedermMain =>
+      const AssetGenImage('assets/images/works/remotederm/remotederm_main.png');
+
+  /// File path: assets/images/works/remotederm/remotederm_two.png
+  AssetGenImage get remotedermTwo =>
+      const AssetGenImage('assets/images/works/remotederm/remotederm_two.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [oracliumThree, remotedermMain, remotedermTwo];
 }
 
 class Assets {

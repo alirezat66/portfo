@@ -50,7 +50,7 @@ final companies = [
       url: 'https://www.remotederm.ca'),
   Company(
       name: 'Igmu',
-      logo: Assets.images.companies.igmuPng.path,
+      logo: Assets.images.companies.igmu.path,
       url: 'https://www.linkedin.com/company/igmu/'),
   Company(
       name: 'Delta',

@@ -26,7 +26,7 @@ class ProfileHighlights extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: context.surfaceBrandColor,
+                backgroundColor: context.basicColors.surfaceBrandColor,
                 foregroundColor: Colors.black,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 24, vertical: 20),

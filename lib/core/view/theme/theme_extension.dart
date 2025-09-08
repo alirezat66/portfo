@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/view/theme/theme.dart';
+import 'package:portfolio/core/view/theme/basic_colors.dart';
 
-extension ThemeExtension on BuildContext {
+extension ThemeContextExtension on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
-
-  Color get surfaceBrandColor => AppTheme.surfaceBrandColor;
-  Color get surfaceBrandSecondary => AppTheme.surfaceBrandSecondary;
+  BasicColors get basicColors =>
+      Theme.of(this).extension<BasicColors>()!;
 }

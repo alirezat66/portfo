@@ -1,69 +1,72 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/core/view/theme/basic_colors.dart';
 
 class AppTheme {
-  static const Color primaryColor = Color(0xFF1A1A1A);
-  static const Color backgroundColor = Color(0xFF151515);
-  static const Color surfaceColor = Color(0xFF262626);
-  static const Color tertiaryColor = Color(0xFF525252);
-  static const Color textPrimaryColor = Color(0xFFFFFFFF);
-  static const Color textSecondaryColor = Color(0xFFA3A3A3);
-  static const Color textTertiaryColor = Color(0xFFF5F5F5);
-  static const Color surfaceInvert = Color(0xFFE5E5E5);
-  static const Color accentColor = Color(0xFF4A9EFF);
-  static const Color surfaceBrandColor = Color(0xFFFDBA72);
-  static const Color surfaceBrandSecondary = Color(0xFFB9925F);
   static ThemeData get darkTheme {
+    final basicColors = BasicColors(
+      primaryColor: const Color(0xFF1A1A1A),
+      backgroundColor: const Color(0xFF151515),
+      surfaceColor: const Color(0xFF262626),
+      tertiaryColor: const Color(0xFF525252),
+      textPrimaryColor: const Color(0xFFFFFFFF),
+      textSecondaryColor: const Color(0xFFA3A3A3),
+      textTertiaryColor: const Color(0xFFF5F5F5),
+      surfaceInvert: const Color(0xFFE5E5E5),
+      accentColor: const Color(0xFF4A9EFF),
+      surfaceBrandColor: const Color(0xFFFDBA72),
+      surfaceBrandSecondary: const Color(0xFFB9925F),
+    );
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
       textTheme: GoogleFonts.nunitoTextTheme(
         ThemeData.dark().textTheme.copyWith(
               headlineLarge: GoogleFonts.nunito(
-                color: textPrimaryColor,
+                color: basicColors.textPrimaryColor,
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
               ),
               headlineMedium: GoogleFonts.nunito(
-                color: textPrimaryColor,
+                color: basicColors.textPrimaryColor,
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
               ),
               bodyLarge: GoogleFonts.nunito(
-                color: textPrimaryColor,
+                color: basicColors.textPrimaryColor,
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
               ),
               bodyMedium: GoogleFonts.nunito(
-                color: textSecondaryColor,
+                color: basicColors.textSecondaryColor,
                 fontSize: 14,
                 fontWeight: FontWeight.normal,
               ),
             ),
       ),
-      colorScheme: const ColorScheme.dark(
-        primary: primaryColor,
-        surface: surfaceColor,
-        tertiary: tertiaryColor,
-        onPrimary: textPrimaryColor,
-        onSurface: textSecondaryColor,
-        onTertiary: textTertiaryColor,
-        inverseSurface: surfaceInvert,
+      colorScheme: ColorScheme.dark(
+        primary: basicColors.primaryColor,
+        surface: basicColors.surfaceColor,
+        tertiary: basicColors.tertiaryColor,
+        onPrimary: basicColors.textPrimaryColor,
+        onSurface: basicColors.textSecondaryColor,
+        onTertiary: basicColors.textTertiaryColor,
+        inverseSurface: basicColors.surfaceInvert,
       ),
-      scaffoldBackgroundColor: backgroundColor,
+      scaffoldBackgroundColor: basicColors.backgroundColor,
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
         titleTextStyle: GoogleFonts.nunito(
-          color: textPrimaryColor,
+          color: basicColors.textPrimaryColor,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
-        iconTheme: const IconThemeData(color: textPrimaryColor),
+        iconTheme: IconThemeData(color: basicColors.textPrimaryColor),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        fillColor: tertiaryColor,
+        fillColor: basicColors.tertiaryColor,
         filled: true,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
@@ -73,7 +76,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
-          foregroundColor: textTertiaryColor,
+          foregroundColor: basicColors.textTertiaryColor,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
@@ -81,6 +84,7 @@ class AppTheme {
           ),
         ),
       ),
+      extensions: [basicColors],
     );
   }
 }

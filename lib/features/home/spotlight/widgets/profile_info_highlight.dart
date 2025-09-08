@@ -35,17 +35,17 @@ class ProfileInfoHighlight extends StatelessWidget {
               const TextSpan(text: "I'm Reza Taghizadeh"),
               TextSpan(
                 text: ".\n",
-                style: TextStyle(color: context.surfaceBrandColor),
+                style: TextStyle(color: context.basicColors.surfaceBrandColor),
               ),
               const TextSpan(text: "I Code "),
               TextSpan(
                 text: "* ",
-                style: TextStyle(color: context.surfaceBrandColor),
-              ),
+                  style: TextStyle(color: context.basicColors.surfaceBrandColor),
+                ),
               const TextSpan(text: "Create\n"),
               TextSpan(
                 text: "* ",
-                style: TextStyle(color: context.surfaceBrandColor),
+                style: TextStyle(color: context.basicColors.surfaceBrandColor),
               ),
               const TextSpan(text: "Innovate."),
             ],
