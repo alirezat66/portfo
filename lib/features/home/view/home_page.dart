@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/core/view/widgets/glow_card.dart';
 import 'package:portfolio/features/companies/company_list_view.dart';
 import 'package:portfolio/features/home/spotlight/spotlight_view.dart';
 import 'package:portfolio/features/home/spotlight/widgets/profile_highlights.dart';

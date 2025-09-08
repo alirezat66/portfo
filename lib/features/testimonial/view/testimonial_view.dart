@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/core/view/widgets/glow_card.dart';
 import 'package:portfolio/features/testimonial/model/testimonial.dart';
 import 'package:portfolio/features/testimonial/view/testimonial_widget.dart';
 
@@ -25,7 +26,7 @@ class TestimonialView extends StatelessWidget {
             spacing: 24,
             children: [
               ...testimonials.map((testimonial) =>
-                  Expanded(child: TestimonialWidget(testimonial: testimonial))),
+                  Expanded(child: GlowCard(child: TestimonialWidget(testimonial: testimonial)))),
             ],
           ),
         ),
