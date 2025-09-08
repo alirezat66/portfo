@@ -7,7 +7,7 @@ class AppTheme {
     final basicColors = BasicColors(
       primaryColor: const Color(0xFF1A1A1A),
       backgroundColor: const Color(0xFF151515),
-      surfaceColor: const Color(0xFF262626),
+      surfaceColor: const Color(0XFF0E0E0E),
       tertiaryColor: const Color(0xFF525252),
       textPrimaryColor: const Color(0xFFFFFFFF),
       textSecondaryColor: const Color(0xFFA3A3A3),
@@ -16,6 +16,7 @@ class AppTheme {
       accentColor: const Color(0xFF4A9EFF),
       surfaceBrandColor: const Color(0xFFFDBA72),
       surfaceBrandSecondary: const Color(0xFFB9925F),
+      surfaceTertiaryColor: const Color(0xFF262626),
     );
     return ThemeData(
       useMaterial3: true,

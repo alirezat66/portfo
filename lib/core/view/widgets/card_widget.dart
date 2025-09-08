@@ -31,6 +31,6 @@ class CardWidget extends StatelessWidget {
         ),
         child: child,
       ),
-    ).increaseSizeOnHover(1.1);
+    ).increaseSizeOnHover(1.04);
   }
 }

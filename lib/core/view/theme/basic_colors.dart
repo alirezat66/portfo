@@ -12,7 +12,7 @@ class BasicColors extends ThemeExtension<BasicColors> {
   final Color accentColor;
   final Color surfaceBrandColor;
   final Color surfaceBrandSecondary;
-
+  final Color surfaceTertiaryColor;
   const BasicColors({
     required this.primaryColor,
     required this.backgroundColor,
@@ -25,6 +25,7 @@ class BasicColors extends ThemeExtension<BasicColors> {
     required this.accentColor,
     required this.surfaceBrandColor,
     required this.surfaceBrandSecondary,
+    required this.surfaceTertiaryColor,
   });
 
   @override
@@ -40,6 +41,7 @@ class BasicColors extends ThemeExtension<BasicColors> {
     Color? accentColor,
     Color? surfaceBrandColor,
     Color? surfaceBrandSecondary,
+    Color? surfaceTertiaryColor,
   }) {
     return BasicColors(
       primaryColor: primaryColor ?? this.primaryColor,
@@ -54,6 +56,7 @@ class BasicColors extends ThemeExtension<BasicColors> {
       surfaceBrandColor: surfaceBrandColor ?? this.surfaceBrandColor,
       surfaceBrandSecondary:
           surfaceBrandSecondary ?? this.surfaceBrandSecondary,
+      surfaceTertiaryColor: surfaceTertiaryColor ?? this.surfaceTertiaryColor,
     );
   }
 

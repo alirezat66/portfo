@@ -58,7 +58,8 @@ class ProfileImage extends StatelessWidget {
                     vertical: context.isDesktop ? 8.0 : 6.0,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF262626).withValues(alpha: 0.3),
+                    color: context.basicColors.surfaceTertiaryColor
+                        .withValues(alpha: 0.3),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Row(

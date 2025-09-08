@@ -1,6 +1,4 @@
 import 'dart:math' as math;
-import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
@@ -108,16 +106,10 @@ class GlowPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
     final angle =
         math.atan2(pointerPosition.dy, pointerPosition.dx) * 180 / math.pi + 70;
     final adjustedAngle = (angle + 360) % 360;
 
-    final paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 15
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 14);
 
     final path = Path()
       ..addRRect(
@@ -133,7 +125,7 @@ class GlowPainter extends CustomPainter {
       ..shader = SweepGradient(
         colors: [
           Colors.transparent,
-          color.withOpacity(0.12), // Equivalent to #ffffff1f
+          color.withValues(alpha: 0.12), // Equivalent to #ffffff1f
           color,
           Colors.transparent,
         ],

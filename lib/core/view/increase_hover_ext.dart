@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio/widgets/responsive_content.dart';
 
 extension IncreaseHoverExt on Widget {
   Widget increaseSizeOnHover(
     double scaleFactor, {
-    bool addBlur = false,
     Duration duration = const Duration(milliseconds: 300),
   }) {
+    bool isHovered = false;
     return StatefulBuilder(
       builder: (context, setState) {
-        // Disable hover effects on mobile and tablet
-        final bool enableHover = context.isDesktop || context.isLaptop;
-
-        if (!enableHover) {
-          return this; // Return widget without hover effects
-        }
-
-        bool isHovered = false;
         return MouseRegion(
           cursor: SystemMouseCursors.click,
           onEnter: (event) {
@@ -55,16 +46,9 @@ extension IncreaseHoverExt on Widget {
       'Current widget type: $runtimeType',
     );
 
+    bool isHovered = false;
     return StatefulBuilder(
       builder: (context, setState) {
-        // Disable hover effects on mobile and tablet
-        final bool enableHover = context.isDesktop || context.isLaptop;
-
-        if (!enableHover) {
-          return this; // Return widget without hover effects
-        }
-
-        bool isHovered = false;
         return MouseRegion(
           cursor: SystemMouseCursors.click,
           onEnter: (event) {

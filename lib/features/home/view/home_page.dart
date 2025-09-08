@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/features/about/view/about_view.dart';
 import 'package:portfolio/features/companies/company_list_view.dart';
 import 'package:portfolio/features/home/spotlight/spotlight_view.dart';
 import 'package:portfolio/features/projects/widgets/latest_projects_section.dart';
@@ -29,6 +31,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colorScheme.surface,
       appBar: const AppNavigationBar(),
       body: Stack(
         children: [
@@ -43,6 +46,7 @@ class HomeView extends StatelessWidget {
                   const LatestProjectsSection(),
                   const TestimonialView(),
                   const LatestArticlesSection(),
+                  const AboutView(),
                 ],
               ),
             ),
@@ -52,5 +56,4 @@ class HomeView extends StatelessWidget {
       ),
     );
   }
-
-  }
+}
