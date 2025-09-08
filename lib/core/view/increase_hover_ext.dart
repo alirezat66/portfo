@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 extension IncreaseHoverExt on Widget {
   Widget increaseSizeOnHover(
     double scaleFactor, {
+    bool addBlur = false,
     Duration duration = const Duration(milliseconds: 300),
   }) {
     bool isHovered = false;
@@ -25,6 +26,7 @@ extension IncreaseHoverExt on Widget {
             duration: duration,
             curve: Curves.easeInOut,
             transformAlignment: Alignment.center,
+            
             transform: isHovered
                 ? Matrix4.diagonal3Values(scaleFactor, scaleFactor, 1.0)
                 : Matrix4.diagonal3Values(1.0, 1.0, 1.0),

@@ -44,6 +44,10 @@ class $AssetsImagesGen {
   AssetGenImage get profileImageHover =>
       const AssetGenImage('assets/images/profile_image_hover.png');
 
+  /// Directory path: assets/images/testimonials
+  $AssetsImagesTestimonialsGen get testimonials =>
+      const $AssetsImagesTestimonialsGen();
+
   /// Directory path: assets/images/works
   $AssetsImagesWorksGen get works => const $AssetsImagesWorksGen();
 
@@ -85,6 +89,42 @@ class $AssetsImagesCompaniesGen {
   /// List of all assets
   List<AssetGenImage> get values =>
       [armancoders, delta, igmu, itboost, moebel, remoteDerm, tuktoro];
+}
+
+class $AssetsImagesTestimonialsGen {
+  const $AssetsImagesTestimonialsGen();
+
+  /// File path: assets/images/testimonials/delaram.jpeg
+  AssetGenImage get delaram =>
+      const AssetGenImage('assets/images/testimonials/delaram.jpeg');
+
+  /// File path: assets/images/testimonials/javad.jpeg
+  AssetGenImage get javad =>
+      const AssetGenImage('assets/images/testimonials/javad.jpeg');
+
+  /// File path: assets/images/testimonials/manju.jpeg
+  AssetGenImage get manju =>
+      const AssetGenImage('assets/images/testimonials/manju.jpeg');
+
+  /// File path: assets/images/testimonials/martin.jpeg
+  AssetGenImage get martin =>
+      const AssetGenImage('assets/images/testimonials/martin.jpeg');
+
+  /// File path: assets/images/testimonials/martin2.jpeg
+  AssetGenImage get martin2 =>
+      const AssetGenImage('assets/images/testimonials/martin2.jpeg');
+
+  /// File path: assets/images/testimonials/mehrdad.jpeg
+  AssetGenImage get mehrdad =>
+      const AssetGenImage('assets/images/testimonials/mehrdad.jpeg');
+
+  /// File path: assets/images/testimonials/payam.jpeg
+  AssetGenImage get payam =>
+      const AssetGenImage('assets/images/testimonials/payam.jpeg');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [delaram, javad, manju, martin, martin2, mehrdad, payam];
 }
 
 class $AssetsImagesWorksGen {
