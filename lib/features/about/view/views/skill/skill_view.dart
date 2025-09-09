@@ -78,7 +78,7 @@ _buildTabletWrapper(BuildContext context) {
 }
 
 _buildDesktopWrapper(BuildContext context) {
-  Column(
+  return Column(
     spacing: 16,
     children: [
       IntrinsicHeight(

@@ -15,7 +15,7 @@ class SectionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(spacing: 32, children: [
+    return Column(spacing: 56, children: [
       Text(
         title,
         style: TextStyle(
@@ -48,6 +48,7 @@ class SectionWidget extends StatelessWidget {
             ),
           ),
         ),
+      SizedBox(),
     ]);
   }
 }

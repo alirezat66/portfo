@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/core/view/widgets/section_widget.dart';
 import 'package:portfolio/features/about/view/views/about_me_view.dart';
 import 'package:portfolio/features/about/view/views/experience_view.dart';
 import 'package:portfolio/features/about/view/views/experience_years.dart';
@@ -8,26 +8,16 @@ import 'package:portfolio/features/about/view/views/social_view.dart';
 import 'package:portfolio/features/about/view/views/work_experience_view.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
-class AboutView extends StatelessWidget {
-  const AboutView({super.key});
+class AboutSection extends StatelessWidget {
+  const AboutSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 24,
-      children: [
-        Text(
-          'About Me',
-          style: TextStyle(
-              color: context.basicColors.textSecondaryColor,
-              fontSize: 44,
-              fontFamily: 'Zodiak',
-              fontWeight: FontWeight.bold),
-        ),
-        context.isDesktop || context.isLaptop
-            ? _buildDesktopAndLaptop(context)
-            : _buildTabletMobile(context),
-      ],
+    return SectionWidget(
+      title: 'About Me',
+      child: context.isDesktop || context.isLaptop
+          ? _buildDesktopAndLaptop(context)
+          : _buildTabletMobile(context),
     );
   }
 
@@ -46,7 +36,7 @@ class AboutView extends StatelessWidget {
             flex: 2,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 12,
+              spacing: 16,
               children: [
                 IntrinsicHeight(
                   child: Row(

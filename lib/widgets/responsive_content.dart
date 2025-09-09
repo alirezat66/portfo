@@ -88,11 +88,15 @@ class ResponsiveConfig {
 // Extension to get current breakpoint anywhere
 extension ResponsiveExtension on BuildContext {
   ResponsiveBreakpoint get breakpoint {
-    final screenWidth = MediaQuery.of(this).size.width;
-    if (screenWidth >= 1440) return ResponsiveBreakpoint.desktop;
-    if (screenWidth >= 1024) return ResponsiveBreakpoint.laptop;
-    if (screenWidth >= 810) return ResponsiveBreakpoint.tablet;
-    return ResponsiveBreakpoint.mobile;
+    try {
+      final screenWidth = MediaQuery.of(this).size.width;
+      if (screenWidth >= 1440) return ResponsiveBreakpoint.desktop;
+      if (screenWidth >= 1024) return ResponsiveBreakpoint.laptop;
+      if (screenWidth >= 810) return ResponsiveBreakpoint.tablet;
+      return ResponsiveBreakpoint.mobile;
+    } catch (e) {
+      return ResponsiveBreakpoint.desktop;
+    }
   }
 
   bool get isMobile => breakpoint == ResponsiveBreakpoint.mobile;

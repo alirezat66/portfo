@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/core/view/widgets/section_widget.dart';
 import 'package:portfolio/features/articles/models/article.dart';
 import 'package:portfolio/features/articles/widgets/article_card.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
@@ -14,41 +14,9 @@ class LatestArticlesSection extends StatelessWidget {
     // Get different number of articles based on screen size
     final displayedArticles = _getDisplayedArticles(context, articles);
 
-    return Column(
-      spacing: 32,
-      children: [
-        Text(
-          'Latest Articles',
-          style: TextStyle(
-            color: context.basicColors.textSecondaryColor,
-            fontSize: 44,
-            fontFamily: 'Zodiak',
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        _buildArticleLayout(context, displayedArticles),
-        ElevatedButton(
-          onPressed: () {
-            // Navigate to all articles page
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.transparent,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-              side: const BorderSide(color: Color(0xFF404040), width: 1),
-            ),
-          ),
-          child: const Text(
-            'Read All Articles',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-      ],
+    return SectionWidget(
+      title: 'Latest Articles',
+      child: _buildArticleLayout(context, displayedArticles),
     );
   }
 
