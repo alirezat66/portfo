@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:portfolio/core/gen/assets.gen.dart';
-import 'package:portfolio/core/view/theme/theme_extension.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/core/view/widgets/social_item/social_item_widget.dart';
+import 'package:portfolio/features/about/models/social.dart';
 
 class SocialMediaIcons extends StatelessWidget {
   const SocialMediaIcons({super.key});
@@ -10,46 +8,12 @@ class SocialMediaIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing: 12,
       children: [
-        _buildSocialIcon(context, Assets.icons.github.path,
-            'https://github.com/alirezat66', 'Github'),
-        const SizedBox(width: 12),
-        _buildSocialIcon(context, Assets.icons.linkedin.path,
-            'https://www.linkedin.com/in/alirezat66/', 'LinkedIn'),
-        const SizedBox(width: 12),
-        _buildSocialIcon(
-          context,
-          Assets.icons.youtube.path,
-          'https://www.youtube.com/@taghiTechTalks',
-          'Youtube',
-        ),
+        SocialIconWidget.circle(context, Social.github()),
+        SocialIconWidget.circle(context, Social.linkedIn()),
+        SocialIconWidget.circle(context, Social.youtube()),
       ],
-    );
-  }
-
-  Widget _buildSocialIcon(
-    BuildContext context,
-    String icon,
-    String url,
-    String tooltip,
-  ) {
-    return Tooltip(
-      message: tooltip,
-      child: GestureDetector(
-        onTap: () {
-          launchUrl(Uri.parse(url));
-        },
-        child: CircleAvatar(
-          radius: 20,
-          backgroundColor: context.colorScheme.tertiary,
-          child: SvgPicture.asset(
-            icon,
-            color: context.colorScheme.onTertiary,
-            width: 20,
-            height: 20,
-          ),
-        ),
-      ),
     );
   }
 }

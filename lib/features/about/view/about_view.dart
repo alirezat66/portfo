@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/core/gen/assets.gen.dart';
-import 'package:portfolio/core/view/increase_hover_ext.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/core/view/widgets/social_item/social_item_widget.dart';
+import 'package:portfolio/features/about/models/social.dart';
 import 'package:portfolio/features/about/models/work.dart';
 import 'package:portfolio/features/about/view/widgets/work_summery_card.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
@@ -145,78 +143,12 @@ class AboutView extends StatelessWidget {
                               crossAxisSpacing: 12,
                               mainAxisSpacing: 12,
                               children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: context.basicColors.backgroundColor,
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      launchUrl(Uri.parse(
-                                          'https://www.linkedin.com/in/reza-taghizadeh/'));
-                                    },
-                                    child: SvgPicture.asset(
-                                      Assets.icons.linkedin.path,
-                                      width: 32,
-                                      height: 32,
-                                      fit: BoxFit.none,
-                                    )..increaseSizeOnHover(1.4),
-                                  ),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: context.basicColors.backgroundColor,
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      launchUrl(Uri.parse(
-                                          'https://github.com/reza-taghizadeh'));
-                                    },
-                                    child: SvgPicture.asset(
-                                      Assets.icons.github.path,
-                                      width: 32,
-                                      height: 32,
-                                      fit: BoxFit.none,
-                                    )..increaseSizeOnHover(1.4),
-                                  ),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: context.basicColors.backgroundColor,
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      launchUrl(Uri.parse(
-                                          'https://www.youtube.com/@taghiTechTalks'));
-                                    },
-                                    child: SvgPicture.asset(
-                                      Assets.icons.youtube.path,
-                                      width: 32,
-                                      height: 32,
-                                      fit: BoxFit.none,
-                                    )..increaseSizeOnHover(1.4),
-                                  ),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: context.basicColors.backgroundColor,
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      launchUrl(Uri.parse(
-                                          'https://medium.com/@alirezataghizadeh66'));
-                                    },
-                                    child: SvgPicture.asset(
-                                      Assets.icons.linkedin.path,
-                                      width: 32,
-                                      height: 32,
-                                      fit: BoxFit.none,
-                                    )..increaseSizeOnHover(1.4),
-                                  ),
-                                ),
+                                SocialIconWidget.card(
+                                    context, Social.linkedIn()),
+                                SocialIconWidget.card(context, Social.github()),
+                                SocialIconWidget.card(
+                                    context, Social.telegram()),
+                                SocialIconWidget.card(context, Social.medium()),
                               ],
                             ),
                           ),

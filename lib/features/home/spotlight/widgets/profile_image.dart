@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/core/gen/assets.gen.dart';
 import 'package:portfolio/core/view/increase_hover_ext.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/core/view/widgets/social_item/social_item_widget.dart';
+import 'package:portfolio/features/about/models/social.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -66,23 +68,23 @@ class ProfileImage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     spacing: context.isDesktop ? 16.0 : 12.0,
                     children: [
-                      _buildSocialIcon(
+                      SocialIconWidget.circle(
                         context,
-                        Assets.icons.github.path,
-                        'https://github.com/alirezat66',
-                        'Github',
+                        Social.github(),
+                        radius: context.isDesktop ? 24.0 : 20.0,
+                        iconSize: context.isDesktop ? 24.0 : 16.0,
                       ),
-                      _buildSocialIcon(
+                      SocialIconWidget.circle(
                         context,
-                        Assets.icons.linkedin.path,
-                        'https://www.linkedin.com/in/alirezat66/',
-                        'LinkedIn',
+                        Social.linkedIn(),
+                        radius: context.isDesktop ? 24.0 : 20.0,
+                        iconSize: context.isDesktop ? 24.0 : 16.0,
                       ),
-                      _buildSocialIcon(
+                      SocialIconWidget.circle(
                         context,
-                        Assets.icons.youtube.path,
-                        'https://www.youtube.com/@taghiTechTalks',
-                        'Youtube',
+                        Social.youtube(),
+                        radius: context.isDesktop ? 24.0 : 20.0,
+                        iconSize: context.isDesktop ? 24.0 : 16.0,
                       ),
                     ],
                   ),
@@ -90,33 +92,5 @@ class ProfileImage extends StatelessWidget {
               ),
             ],
           );
-  }
-
-  Widget _buildSocialIcon(
-    BuildContext context,
-    String iconPath,
-    String url,
-    String tooltip,
-  ) {
-    final double iconRadius = context.isDesktop ? 24.0 : 20.0;
-    final double iconSize = context.isDesktop ? 20.0 : 16.0;
-
-    return Tooltip(
-      message: tooltip,
-      child: CircleAvatar(
-        radius: iconRadius,
-        backgroundColor: context.colorScheme.surface,
-        child: GestureDetector(
-          onTap: () {
-            launchUrl(Uri.parse(url));
-          },
-          child: SvgPicture.asset(
-            iconPath,
-            width: iconSize,
-            height: iconSize,
-          ),
-        ),
-      ).increaseSizeOnHover(1.2),
-    );
   }
 }

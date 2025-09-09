@@ -23,11 +23,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/linkedin.svg
   SvgGenImage get linkedin => const SvgGenImage('assets/icons/linkedin.svg');
 
+  /// File path: assets/icons/medium.svg
+  SvgGenImage get medium => const SvgGenImage('assets/icons/medium.svg');
+
+  /// File path: assets/icons/telegram.svg
+  SvgGenImage get telegram => const SvgGenImage('assets/icons/telegram.svg');
+
   /// File path: assets/icons/youtube.svg
   SvgGenImage get youtube => const SvgGenImage('assets/icons/youtube.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [github, linkedin, youtube];
+  List<SvgGenImage> get values => [github, linkedin, medium, telegram, youtube];
 }
 
 class $AssetsImagesGen {
