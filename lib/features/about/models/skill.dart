@@ -11,37 +11,67 @@ class SkillCategoryModel {
     required this.skills,
   });
 
-  factory SkillCategoryModel.programming() {
+  factory SkillCategoryModel.mobileAndFrontend() {
     return SkillCategoryModel(
-      category: 'Programming',
+      category: 'Mobile & Front-End',
       categoryIcon: Assets.icons.skills.code.path,
       skills: [
         // Languages
         Skill(name: 'Dart', icon: Assets.icons.skills.dart.path),
-        Skill(name: 'Java', icon: Assets.icons.skills.java.path),
         Skill(name: 'Kotlin', icon: Assets.icons.skills.kotlin.path),
         Skill(name: 'Swift', icon: Assets.icons.skills.swift.path),
-        Skill(
-          name: 'TypeScript',
-        ),
-        Skill(
-          name: 'JavaScript',
-        ),
+        Skill(name: 'TypeScript'),
+        Skill(name: 'JavaScript'),
 
-        // Frameworks
+        // Frameworks & State Management
         Skill(name: 'Flutter', icon: Assets.icons.skills.flutter.path),
-        Skill(name: 'Node.js', icon: Assets.icons.skills.node.path),
-        const Skill(name: 'Dart Backend'),
+        const Skill(name: 'Bloc, Riverpod, Provider'),
+        const Skill(name: 'GetIt, Hilt'),
+
+        // Features & Concepts
+        const Skill(name: 'Isolate & Event Loop'),
+        const Skill(name: 'Streams & Futures'),
+        const Skill(name: 'RxDart'),
+        const Skill(name: 'Plugins & Packages'),
+        const Skill(name: 'Animations'),
+        const Skill(name: 'Render Objects'),
       ],
     );
   }
 
-  factory SkillCategoryModel.approaches() {
+  factory SkillCategoryModel.backendAndData() {
     return SkillCategoryModel(
-      category: 'Approaches',
-      categoryIcon: Assets.icons.skills.architecture.path,
+      category: 'Back-End & Data',
+      categoryIcon: Assets.icons.skills.devOps.path,
       skills: [
-        // Architecture
+        // Languages & Frameworks
+        Skill(name: 'Java', icon: Assets.icons.skills.java.path),
+        Skill(name: 'Node.js', icon: Assets.icons.skills.node.path),
+        const Skill(name: 'Dart Backend'),
+
+        // Databases & Storage
+        const Skill(name: 'MSSQL'),
+        const Skill(name: 'MongoDB'),
+        const Skill(name: 'Hive'),
+        const Skill(name: 'Isar'),
+        const Skill(name: 'Sqfentity'),
+        const Skill(name: 'Floor'),
+
+        // APIs
+        const Skill(name: 'REST'),
+        const Skill(name: 'GraphQL'),
+        const Skill(name: 'gRPC'),
+        const Skill(name: 'SOAP'),
+      ],
+    );
+  }
+
+  factory SkillCategoryModel.architectureAndBestPractices() {
+    return SkillCategoryModel(
+      category: 'Architecture & Best Practices',
+      categoryIcon: Assets.icons.skills.library.path,
+      skills: [
+        // Architectural Concepts
         const Skill(name: 'Clean, MVVM, DDD'),
         const Skill(name: 'SOLID'),
         const Skill(name: 'Clean Code'),
@@ -49,40 +79,14 @@ class SkillCategoryModel {
         const Skill(name: 'KISS'),
         const Skill(name: 'Design Patterns'),
 
-        // Backend & APIs
-        const Skill(name: 'REST'),
-        const Skill(name: 'GraphQL'),
-        const Skill(name: 'gRPC'),
-        const Skill(name: 'SOAP'),
-        Skill(name: 'Firebase', icon: Assets.icons.skills.firebase.path),
-
-        // Databases
-        const Skill(name: 'MSSQL'),
-        const Skill(name: 'MongoDB'),
-        const Skill(name: 'Hive'),
-        const Skill(name: 'Isar'),
-        const Skill(name: 'Sqfentity'),
-        const Skill(name: 'Floor'),
+        // Testing & CI/CD
         const Skill(name: 'TDD'),
         const Skill(name: 'E2E Tests'),
         const Skill(name: 'A/B Testing'),
-      ],
-    );
-  }
-
-  factory SkillCategoryModel.tools() {
-    return SkillCategoryModel(
-      category: 'Tools & DevOps',
-      categoryIcon: Assets.icons.skills.devOps.path,
-      skills: [
-        // Testing
         const Skill(name: 'Fluttium'),
         const Skill(name: 'Patrol'),
-        // CI/CD
         const Skill(name: 'Codemagic'),
-        const Skill(
-          name: 'GitHub Actions',
-        ),
+        const Skill(name: 'GitHub Actions'),
         Skill(name: 'Jenkins', icon: Assets.icons.skills.jenkins.path),
         const Skill(name: 'fastlane'),
 
@@ -90,40 +94,25 @@ class SkillCategoryModel {
         Skill(name: 'GitHub', icon: Assets.icons.skills.github.path),
         Skill(name: 'GitLab', icon: Assets.icons.skills.gitlab.path),
         const Skill(name: 'Codecommit'),
+      ],
+    );
+  }
 
-        // Design & Other Tools
+  factory SkillCategoryModel.toolsAndProfessionalSkills() {
+    return SkillCategoryModel(
+      category: 'Tools & Professional Skills',
+      categoryIcon: Assets.icons.skills.communication.path,
+      skills: [
+        // Tools
+        Skill(name: 'Firebase', icon: Assets.icons.skills.firebase.path),
+        const Skill(name: 'CLI Development'),
+        const Skill(name: 'Tokens & Design Systems'),
         const Skill(name: 'Adobe XD'),
         Skill(name: 'Figma', icon: Assets.icons.skills.figma.path),
         const Skill(name: 'Rive'),
         const Skill(name: 'Usercentrics'),
-      ],
-    );
-  }
 
-  factory SkillCategoryModel.flutter() {
-    return SkillCategoryModel(
-      category: 'Flutter',
-      categoryIcon: Assets.icons.skills.library.path,
-      skills: [
-        const Skill(name: 'Bloc, Riverpod, Provider'),
-        const Skill(name: 'GetIt, Hilt'),
-        const Skill(name: 'Isolate & Event Loop'),
-        const Skill(name: 'Streams & Futures'),
-        const Skill(name: 'RxDart'),
-        const Skill(name: 'Plugins & Packages'),
-        const Skill(name: 'CLI Development'),
-        const Skill(name: 'Animations'),
-        const Skill(name: 'Render Objects'),
-        const Skill(name: 'Tokens & Design Systems'),
-      ],
-    );
-  }
-
-  factory SkillCategoryModel.soft() {
-    return SkillCategoryModel(
-      category: 'Soft Skills',
-      categoryIcon: Assets.icons.skills.communication.path,
-      skills: [
+        // Professional Skills
         const Skill(name: 'Teamwork'),
         const Skill(name: 'Problem-solving'),
         const Skill(name: 'Active learning'),

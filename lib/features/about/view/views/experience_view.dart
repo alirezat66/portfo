@@ -13,15 +13,17 @@ class ExperienceView extends StatelessWidget {
     return Column(
       spacing: 12,
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: context.basicColors.backgroundColor,
-            borderRadius: BorderRadius.circular(16),
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              color: context.basicColors.backgroundColor,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            padding: const EdgeInsets.all(16),
+            child: Column(children: [
+              ...WorkModel.works.map((work) => WorkSummeryCard(work: work)),
+            ]),
           ),
-          padding: const EdgeInsets.all(16),
-          child: Column(children: [
-            ...WorkModel.works.map((work) => WorkSummeryCard(work: work)),
-          ]),
         ),
         Row(
           mainAxisSize: MainAxisSize.max,

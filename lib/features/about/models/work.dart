@@ -54,7 +54,15 @@ class WorkModel {
           endYear: '2018',
           endMonth: 'Jul',
           companyName: 'IT boosts',
-          jobTitle: 'Senior Mobile Developer(native)',
+          jobTitle: 'Senior Mobile Developer',
+        ),
+        WorkModel(
+          startYear: '2016',
+          startMonth: 'Aug',
+          endYear: '2017',
+          endMonth: 'Aug',
+          companyName: 'Delta',
+          jobTitle: 'Senior Mobile Developer',
         ),
       ];
 }

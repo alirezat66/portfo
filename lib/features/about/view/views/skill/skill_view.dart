@@ -16,12 +16,10 @@ class SkillView extends StatelessWidget {
             children: [
               Expanded(
                   child: SkillCategoryView(
-                      category: SkillCategoryModel.programming())),
+                      category: SkillCategoryModel.mobileAndFrontend())),
               Expanded(
                   child: SkillCategoryView(
-                      category: SkillCategoryModel.approaches())),
-              Expanded(
-                  child: SkillCategoryView(category: SkillCategoryModel.tools())),
+                      category: SkillCategoryModel.backendAndData())),
             ],
           ),
         ),
@@ -30,10 +28,12 @@ class SkillView extends StatelessWidget {
           spacing: 16,
           children: [
             Expanded(
-                child:
-                    SkillCategoryView(category: SkillCategoryModel.flutter())),
+                child: SkillCategoryView(
+                    category:
+                        SkillCategoryModel.architectureAndBestPractices())),
             Expanded(
-                child: SkillCategoryView(category: SkillCategoryModel.soft())),
+                child: SkillCategoryView(
+                    category: SkillCategoryModel.toolsAndProfessionalSkills())),
           ],
         ))
       ],
