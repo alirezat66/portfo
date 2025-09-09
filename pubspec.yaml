@@ -44,6 +44,7 @@ flutter:
     - assets/images/works/moebel/
     - assets/images/works/oraclium/
     - assets/images/testimonials/
+    - assets/icons/skills/
   fonts:
     - family: Zodiak
       fonts:

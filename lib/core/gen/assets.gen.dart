@@ -26,6 +26,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/medium.svg
   SvgGenImage get medium => const SvgGenImage('assets/icons/medium.svg');
 
+  /// Directory path: assets/icons/skills
+  $AssetsIconsSkillsGen get skills => const $AssetsIconsSkillsGen();
+
   /// File path: assets/icons/telegram.svg
   SvgGenImage get telegram => const SvgGenImage('assets/icons/telegram.svg');
 
@@ -59,6 +62,85 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [profileImage, profileImageHover];
+}
+
+class $AssetsIconsSkillsGen {
+  const $AssetsIconsSkillsGen();
+
+  /// File path: assets/icons/skills/architecture.svg
+  SvgGenImage get architecture =>
+      const SvgGenImage('assets/icons/skills/architecture.svg');
+
+  /// File path: assets/icons/skills/code.svg
+  SvgGenImage get code => const SvgGenImage('assets/icons/skills/code.svg');
+
+  /// File path: assets/icons/skills/communication.svg
+  SvgGenImage get communication =>
+      const SvgGenImage('assets/icons/skills/communication.svg');
+
+  /// File path: assets/icons/skills/dart.svg
+  SvgGenImage get dart => const SvgGenImage('assets/icons/skills/dart.svg');
+
+  /// File path: assets/icons/skills/dev_ops.svg
+  SvgGenImage get devOps =>
+      const SvgGenImage('assets/icons/skills/dev_ops.svg');
+
+  /// File path: assets/icons/skills/figma.svg
+  SvgGenImage get figma => const SvgGenImage('assets/icons/skills/figma.svg');
+
+  /// File path: assets/icons/skills/firebase.svg
+  SvgGenImage get firebase =>
+      const SvgGenImage('assets/icons/skills/firebase.svg');
+
+  /// File path: assets/icons/skills/flutter.svg
+  SvgGenImage get flutter =>
+      const SvgGenImage('assets/icons/skills/flutter.svg');
+
+  /// File path: assets/icons/skills/github.svg
+  SvgGenImage get github => const SvgGenImage('assets/icons/skills/github.svg');
+
+  /// File path: assets/icons/skills/gitlab.svg
+  SvgGenImage get gitlab => const SvgGenImage('assets/icons/skills/gitlab.svg');
+
+  /// File path: assets/icons/skills/java.svg
+  SvgGenImage get java => const SvgGenImage('assets/icons/skills/java.svg');
+
+  /// File path: assets/icons/skills/jenkins.svg
+  SvgGenImage get jenkins =>
+      const SvgGenImage('assets/icons/skills/jenkins.svg');
+
+  /// File path: assets/icons/skills/kotlin.svg
+  SvgGenImage get kotlin => const SvgGenImage('assets/icons/skills/kotlin.svg');
+
+  /// File path: assets/icons/skills/library.svg
+  SvgGenImage get library =>
+      const SvgGenImage('assets/icons/skills/library.svg');
+
+  /// File path: assets/icons/skills/node.svg
+  SvgGenImage get node => const SvgGenImage('assets/icons/skills/node.svg');
+
+  /// File path: assets/icons/skills/swift.svg
+  SvgGenImage get swift => const SvgGenImage('assets/icons/skills/swift.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [
+        architecture,
+        code,
+        communication,
+        dart,
+        devOps,
+        figma,
+        firebase,
+        flutter,
+        github,
+        gitlab,
+        java,
+        jenkins,
+        kotlin,
+        library,
+        node,
+        swift
+      ];
 }
 
 class $AssetsImagesCompaniesGen {

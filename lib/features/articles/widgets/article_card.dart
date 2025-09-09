@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/view/increase_hover_ext.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
 import 'package:portfolio/core/view/widgets/glow_card.dart';
 import 'package:portfolio/features/articles/models/article.dart';
@@ -29,7 +28,7 @@ class ArticleCard extends StatelessWidget {
               height: context.isMobile ? 180 : 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: context.basicColors.surfaceBrandColor.withOpacity(0.1),
+                color: context.basicColors.surfaceBrandColor.withValues(alpha: 0.1),
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
@@ -53,7 +52,7 @@ class ArticleCard extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color:
-                        context.basicColors.surfaceBrandColor.withOpacity(0.2),
+                        context.basicColors.surfaceBrandColor.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -71,14 +70,14 @@ class ArticleCard extends StatelessWidget {
                       Icons.access_time,
                       size: 14,
                       color: context.basicColors.textSecondaryColor
-                          .withOpacity(0.6),
+                          .withValues(alpha: 0.6),
                     ),
                     const SizedBox(width: 4),
                     Text(
                       article.readTime,
                       style: TextStyle(
                         color: context.basicColors.textSecondaryColor
-                            .withOpacity(0.6),
+                            .withValues(alpha: 0.6),
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
                       ),
@@ -111,7 +110,7 @@ class ArticleCard extends StatelessWidget {
                 article.description,
                 style: TextStyle(
                   color:
-                      context.basicColors.textSecondaryColor.withOpacity(0.8),
+                      context.basicColors.textSecondaryColor.withValues(alpha: 0.8),
                   fontSize: context.isMobile ? 14 : 15,
                   fontWeight: FontWeight.w400,
                   height: 1.5,
@@ -133,7 +132,7 @@ class ArticleCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: context.basicColors.surfaceBrandColor
-                          .withOpacity(0.3),
+                          .withValues(alpha: 0.3),
                     ),
                     borderRadius: BorderRadius.circular(20),
                   ),
