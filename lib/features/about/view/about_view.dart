@@ -4,6 +4,7 @@ import 'package:portfolio/features/about/view/views/about_me_view.dart';
 import 'package:portfolio/features/about/view/views/experience_view.dart';
 import 'package:portfolio/features/about/view/views/skill/skill_view.dart';
 import 'package:portfolio/features/about/view/views/social_view.dart';
+import 'package:portfolio/widgets/responsive_content.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
@@ -35,17 +36,18 @@ class AboutView extends StatelessWidget {
                 flex: 2,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
                   spacing: 12,
                   children: [
                     IntrinsicHeight(
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         spacing: 12,
                         children: [
-                          Expanded(
-                            flex: 1,
-                            child: SocialView(),
-                          ),
+                          if (context.isDesktop)
+                            Expanded(
+                              flex: 1,
+                              child: SocialView(),
+                            ),
                           Expanded(
                             flex: 2,
                             child: AboutMeView(),
