@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/core/gen/assets.gen.dart';
 import 'package:portfolio/core/view/increase_hover_ext.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
 import 'package:portfolio/core/view/widgets/social_item/social_item_widget.dart';
 import 'package:portfolio/features/about/models/social.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ProfileImage extends StatelessWidget {
   const ProfileImage({super.key});
