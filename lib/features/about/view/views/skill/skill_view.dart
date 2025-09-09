@@ -1,44 +1,113 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/features/about/models/skill.dart';
 import 'package:portfolio/features/about/view/views/skill/skill_category_view.dart';
+import 'package:portfolio/widgets/responsive_content.dart';
 
 class SkillView extends StatelessWidget {
   const SkillView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 16,
-      children: [
-        IntrinsicHeight(
-          child: Row(
-            spacing: 16,
-            children: [
-              Expanded(
-                  child: SkillCategoryView(
-                      category: SkillCategoryModel.mobileAndFrontend())),
-              Expanded(
-                  child: SkillCategoryView(
-                      category: SkillCategoryModel.backendAndData())),
-            ],
-          ),
-        ),
-        Expanded(
-            child: Row(
+    return context.isDesktop || context.isLaptop
+        ? _buildDesktopWrapper(context)
+        : context.isTablet
+            ? _buildTabletWrapper(context)
+            : _buildMobileWrapper(context);
+  }
+}
+
+_buildMobileWrapper(BuildContext context) {
+  return Column(
+    spacing: 16,
+    children: [
+      SizedBox(
+        width: double.infinity,
+        child:
+            SkillCategoryView(category: SkillCategoryModel.mobileAndFrontend()),
+      ),
+      SizedBox(
+        width: double.infinity,
+        child: SkillCategoryView(category: SkillCategoryModel.backendAndData()),
+      ),
+      SizedBox(
+        width: double.infinity,
+        child: SkillCategoryView(
+            category: SkillCategoryModel.architectureAndBestPractices()),
+      ),
+      SizedBox(
+        width: double.infinity,
+        child: SkillCategoryView(
+            category: SkillCategoryModel.toolsAndProfessionalSkills()),
+      ),
+    ],
+  );
+}
+
+_buildTabletWrapper(BuildContext context) {
+  return Column(
+    spacing: 16,
+    children: [
+      IntrinsicHeight(
+        child: Row(
           spacing: 16,
           children: [
             Expanded(
                 child: SkillCategoryView(
-                    category:
-                        SkillCategoryModel.architectureAndBestPractices())),
+                    category: SkillCategoryModel.mobileAndFrontend())),
             Expanded(
                 child: SkillCategoryView(
-                    category: SkillCategoryModel.toolsAndProfessionalSkills())),
+                    category: SkillCategoryModel.backendAndData())),
           ],
-        ))
-      ],
-    );
-  }
+        ),
+      ),
+      IntrinsicHeight(
+          child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 16,
+        children: [
+          Expanded(
+              child: SkillCategoryView(
+                  category: SkillCategoryModel.architectureAndBestPractices())),
+          Expanded(
+              child: SkillCategoryView(
+                  category: SkillCategoryModel.toolsAndProfessionalSkills())),
+        ],
+      ))
+    ],
+  );
+}
+
+_buildDesktopWrapper(BuildContext context) {
+  Column(
+    spacing: 16,
+    children: [
+      IntrinsicHeight(
+        child: Row(
+          spacing: 16,
+          children: [
+            Expanded(
+                child: SkillCategoryView(
+                    category: SkillCategoryModel.mobileAndFrontend())),
+            Expanded(
+                child: SkillCategoryView(
+                    category: SkillCategoryModel.backendAndData())),
+          ],
+        ),
+      ),
+      Expanded(
+          child: Row(
+        spacing: 16,
+        children: [
+          Expanded(
+              child: SkillCategoryView(
+                  category: SkillCategoryModel.architectureAndBestPractices())),
+          Expanded(
+              child: SkillCategoryView(
+                  category: SkillCategoryModel.toolsAndProfessionalSkills())),
+        ],
+      ))
+    ],
+  );
 }
 /* 
 class SkillView extends StatefulWidget {

@@ -12,7 +12,7 @@ class SocialView extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1,
       child: GridView.count(
-        crossAxisCount: 2,
+        crossAxisCount:  2,
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
         children: [
