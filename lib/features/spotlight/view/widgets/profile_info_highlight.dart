@@ -35,7 +35,7 @@ class ProfileInfoHighlight extends StatelessWidget {
               fontWeight: FontWeight.w100,
               fontFamily: 'Zodiak',
               color: context.colorScheme.onPrimary,
-              height: 1.1,
+              height: 1.4,
             ),
             children: [
               TextSpan(text: "I'm ${profile.name}"),

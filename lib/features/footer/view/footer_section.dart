@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/di/service_locator.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/core/view/widgets/download_button.dart';
 import 'package:portfolio/core/view/widgets/social_item/social_item_widget.dart';
 import 'package:portfolio/features/about/models/social.dart';
 import 'package:portfolio/features/footer/model/data/footer_data.dart';
@@ -33,9 +34,8 @@ class FooterSectionContent extends StatelessWidget {
             child: ResponsiveContent(
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 40),
-                child: context.isDesktop || context.isLaptop
-                    ? _buildDesktopFooter(context, state.footerData)
-                    : _buildMobileFooter(context, state.footerData),
+                child:_buildDesktopFooter(context, state.footerData)
+                    
               ),
             ),
           );
@@ -52,6 +52,7 @@ class FooterSectionContent extends StatelessWidget {
       spacing: 24,
       children: [
         // Main footer content
+
         Row(
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 68,
@@ -74,18 +75,25 @@ class FooterSectionContent extends StatelessWidget {
               );
             }).toList()),
         const SizedBox(height: 24),
+
+        DownloadButton(text: "Download CV", isResume: true),
+
+        const SizedBox(height: 24),
+
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 68,
-          children: footerData.socialLinks.map<Widget>((socialLink) {
-            return SocialIconWidget.circle(
-                context,
-                Social(
-                  icon: socialLink.iconPath,
-                  url: socialLink.url,
-                  tooltip: socialLink.tooltip,
-                ));
-          }).toList(),
+          spacing: 24,
+          children: [
+            ...footerData.socialLinks.map<Widget>((socialLink) {
+              return SocialIconWidget.circle(
+                  context,
+                  Social(
+                    icon: socialLink.iconPath,
+                    url: socialLink.url,
+                    tooltip: socialLink.tooltip,
+                  ));
+            }),
+          ],
         ),
         const Divider(color: Colors.grey),
 
@@ -95,7 +103,7 @@ class FooterSectionContent extends StatelessWidget {
     );
   }
 
-  Widget _buildMobileFooter(BuildContext context, footerData) {
+/*   Widget _buildMobileFooter(BuildContext context, footerData) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -114,7 +122,7 @@ class FooterSectionContent extends StatelessWidget {
         _buildCopyright(context, footerData.copyright),
       ],
     );
-  }
+  } */
 
   Widget _buildNavigationLinks(BuildContext context, navigationLinks) {
     return Column(

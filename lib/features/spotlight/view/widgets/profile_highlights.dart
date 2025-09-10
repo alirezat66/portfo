@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/core/view/widgets/download_button.dart';
 import 'package:portfolio/features/spotlight/model/data/profile.dart';
 import 'package:portfolio/features/spotlight/view/widgets/profile_info_highlight.dart';
 import 'package:portfolio/widgets/availability_widget.dart';
@@ -28,24 +28,9 @@ class ProfileHighlights extends StatelessWidget {
               ? MainAxisAlignment.start
               : MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: context.basicColors.surfaceBrandColor,
-                foregroundColor: Colors.black,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: const Text(
-                "Start a Project",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+            DownloadButton(
+              text: "Download CV",
+              isResume: true,
             ),
             const SizedBox(width: 16),
             OutlinedButton(

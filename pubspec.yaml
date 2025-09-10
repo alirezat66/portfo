@@ -47,7 +47,8 @@ flutter:
     - assets/icons/skills/
     - assets/data/
     - assets/images/articles/
-    - simple_test.svg
+    - assets/data/cv.pdf
+
   fonts:
     - family: Zodiak
       fonts:
