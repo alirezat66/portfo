@@ -17,6 +17,9 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsDataGen {
   const $AssetsDataGen();
 
+  /// File path: assets/data/about.json
+  String get about => 'assets/data/about.json';
+
   /// File path: assets/data/articles.json
   String get articles => 'assets/data/articles.json';
 
@@ -30,7 +33,8 @@ class $AssetsDataGen {
   String get testimonials => 'assets/data/testimonials.json';
 
   /// List of all assets
-  List<String> get values => [articles, companies, profile, testimonials];
+  List<String> get values =>
+      [about, articles, companies, profile, testimonials];
 }
 
 class $AssetsIconsGen {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
-import '../../models/skill.dart';
+import '../../model/data/about_data.dart';
 
 class SkillChip extends StatefulWidget {
   final Skill skill;

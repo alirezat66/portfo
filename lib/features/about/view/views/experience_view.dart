@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
-import 'package:portfolio/features/about/models/work.dart';
+import 'package:portfolio/features/about/model/data/about_data.dart';
 import 'package:portfolio/features/about/view/views/experience_years.dart';
 import 'package:portfolio/features/about/view/widgets/work_summery_card.dart';
 
 class ExperienceView extends StatelessWidget {
+  final AboutData aboutData;
+
   const ExperienceView({
     super.key,
+    required this.aboutData,
   });
 
   @override
@@ -22,13 +25,13 @@ class ExperienceView extends StatelessWidget {
             ),
             padding: const EdgeInsets.all(16),
             child: Column(children: [
-              ...WorkModel.works.map((work) => WorkSummeryCard(work: work)),
+              ...aboutData.workExperience
+                  .map((work) => WorkSummeryCard(work: work)),
             ]),
           ),
         ),
-        ExperienceYears()
+        ExperienceYears(aboutData: aboutData)
       ],
     );
   }
 }
-

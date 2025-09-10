@@ -1,49 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/features/about/models/skill.dart';
+import 'package:portfolio/features/about/model/data/about_data.dart';
 import 'package:portfolio/features/about/view/views/skill/skill_category_view.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
 class SkillView extends StatelessWidget {
-  const SkillView({super.key});
+  final AboutData aboutData;
+
+  const SkillView({super.key, required this.aboutData});
 
   @override
   Widget build(BuildContext context) {
     return context.isDesktop || context.isLaptop
-        ? _buildDesktopWrapper(context)
+        ? _buildDesktopWrapper(context, aboutData)
         : context.isTablet
-            ? _buildTabletWrapper(context)
-            : _buildMobileWrapper(context);
+            ? _buildTabletWrapper(context, aboutData)
+            : _buildMobileWrapper(context, aboutData);
   }
 }
 
-_buildMobileWrapper(BuildContext context) {
+Widget _buildMobileWrapper(BuildContext context, AboutData aboutData) {
   return Column(
     spacing: 16,
-    children: [
-      SizedBox(
+    children: aboutData.skillCategories.map((category) {
+      return SizedBox(
         width: double.infinity,
-        child:
-            SkillCategoryView(category: SkillCategoryModel.mobileAndFrontend()),
-      ),
-      SizedBox(
-        width: double.infinity,
-        child: SkillCategoryView(category: SkillCategoryModel.backendAndData()),
-      ),
-      SizedBox(
-        width: double.infinity,
-        child: SkillCategoryView(
-            category: SkillCategoryModel.architectureAndBestPractices()),
-      ),
-      SizedBox(
-        width: double.infinity,
-        child: SkillCategoryView(
-            category: SkillCategoryModel.toolsAndProfessionalSkills()),
-      ),
-    ],
+        child: SkillCategoryView(category: category),
+      );
+    }).toList(),
   );
 }
 
-_buildTabletWrapper(BuildContext context) {
+Widget _buildTabletWrapper(BuildContext context, AboutData aboutData) {
+  final categories = aboutData.skillCategories;
   return Column(
     spacing: 16,
     children: [
@@ -51,12 +39,8 @@ _buildTabletWrapper(BuildContext context) {
         child: Row(
           spacing: 16,
           children: [
-            Expanded(
-                child: SkillCategoryView(
-                    category: SkillCategoryModel.mobileAndFrontend())),
-            Expanded(
-                child: SkillCategoryView(
-                    category: SkillCategoryModel.backendAndData())),
+            Expanded(child: SkillCategoryView(category: categories[0])),
+            Expanded(child: SkillCategoryView(category: categories[1])),
           ],
         ),
       ),
@@ -65,19 +49,16 @@ _buildTabletWrapper(BuildContext context) {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 16,
         children: [
-          Expanded(
-              child: SkillCategoryView(
-                  category: SkillCategoryModel.architectureAndBestPractices())),
-          Expanded(
-              child: SkillCategoryView(
-                  category: SkillCategoryModel.toolsAndProfessionalSkills())),
+          Expanded(child: SkillCategoryView(category: categories[2])),
+          Expanded(child: SkillCategoryView(category: categories[3])),
         ],
       ))
     ],
   );
 }
 
-_buildDesktopWrapper(BuildContext context) {
+Widget _buildDesktopWrapper(BuildContext context, AboutData aboutData) {
+  final categories = aboutData.skillCategories;
   return Column(
     spacing: 16,
     children: [
@@ -85,12 +66,8 @@ _buildDesktopWrapper(BuildContext context) {
         child: Row(
           spacing: 16,
           children: [
-            Expanded(
-                child: SkillCategoryView(
-                    category: SkillCategoryModel.mobileAndFrontend())),
-            Expanded(
-                child: SkillCategoryView(
-                    category: SkillCategoryModel.backendAndData())),
+            Expanded(child: SkillCategoryView(category: categories[0])),
+            Expanded(child: SkillCategoryView(category: categories[1])),
           ],
         ),
       ),
@@ -98,12 +75,8 @@ _buildDesktopWrapper(BuildContext context) {
           child: Row(
         spacing: 16,
         children: [
-          Expanded(
-              child: SkillCategoryView(
-                  category: SkillCategoryModel.architectureAndBestPractices())),
-          Expanded(
-              child: SkillCategoryView(
-                  category: SkillCategoryModel.toolsAndProfessionalSkills())),
+          Expanded(child: SkillCategoryView(category: categories[2])),
+          Expanded(child: SkillCategoryView(category: categories[3])),
         ],
       ))
     ],

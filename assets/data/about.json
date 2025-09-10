@@ -1,0 +1,304 @@
+{
+    "profile": {
+        "name": "Reza Taghizadeh",
+        "title": "Senior Software Engineer",
+        "description": "Senior Software Engineer, crafting scalable apps using robust architectures. Skilled in Android, iOS and Flutter, focusing on SOLID and test-driven development. Delivered apps with high-quality, adaptable code under tight deadlines.",
+        "profileImagePath": "assets/images/profile_image.png",
+        "profileImageHoverPath": "assets/images/profile_image_hover.png",
+        "availabilityStatus": "available"
+    },
+    "statistics": {
+        "experienceYears": "16+ Years",
+        "projectsCount": "70+ Projects"
+    },
+    "workExperience": [
+        {
+            "startYear": "2025",
+            "startMonth": "Apr",
+            "endYear": "2025",
+            "endMonth": "Jul",
+            "companyName": "A2zebra",
+            "jobTitle": "Senior Flutter Engineer"
+        },
+        {
+            "startYear": "2023",
+            "startMonth": "Feb",
+            "endYear": "2025",
+            "endMonth": "Apr",
+            "companyName": "Moebel.de",
+            "jobTitle": "Senior Flutter Developer"
+        },
+        {
+            "startYear": "2020",
+            "startMonth": "Jul",
+            "endYear": "2023",
+            "endMonth": "Jun",
+            "companyName": "ArmanCoders",
+            "jobTitle": "Mobile Team Lead"
+        },
+        {
+            "startYear": "2018",
+            "startMonth": "Jul",
+            "endYear": "2020",
+            "endMonth": "Jun",
+            "companyName": "Sana Gostar",
+            "jobTitle": "Flutter Developer"
+        },
+        {
+            "startYear": "2017",
+            "startMonth": "Aug",
+            "endYear": "2018",
+            "endMonth": "Jul",
+            "companyName": "IT boosts",
+            "jobTitle": "Senior Mobile Developer"
+        },
+        {
+            "startYear": "2016",
+            "startMonth": "Aug",
+            "endYear": "2017",
+            "endMonth": "Aug",
+            "companyName": "Delta",
+            "jobTitle": "Senior Mobile Developer"
+        }
+    ],
+    "socialLinks": [
+        {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/in/alirezat66/",
+            "iconPath": "assets/icons/linkedin.svg",
+            "tooltip": "LinkedIn"
+        },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/@taghiTechTalks",
+            "iconPath": "assets/icons/youtube.svg",
+            "tooltip": "YouTube"
+        },
+        {
+            "name": "Medium",
+            "url": "https://medium.com/@alirezataghizadeh66",
+            "iconPath": "assets/icons/medium.svg",
+            "tooltip": "Medium"
+        },
+        {
+            "name": "GitHub",
+            "url": "https://github.com/alirezat66",
+            "iconPath": "assets/icons/github.svg",
+            "tooltip": "GitHub"
+        },
+        {
+            "name": "Telegram",
+            "url": "https://t.me/alirezat_66",
+            "iconPath": "assets/icons/telegram.svg",
+            "tooltip": "Telegram"
+        }
+    ],
+    "skillCategories": [
+        {
+            "category": "Mobile & Front-End",
+            "categoryIcon": "assets/icons/skills/code.svg",
+            "skills": [
+                {
+                    "name": "Dart",
+                    "icon": "assets/icons/skills/dart.svg"
+                },
+                {
+                    "name": "Kotlin",
+                    "icon": "assets/icons/skills/kotlin.svg"
+                },
+                {
+                    "name": "Swift",
+                    "icon": "assets/icons/skills/swift.svg"
+                },
+                {
+                    "name": "TypeScript"
+                },
+                {
+                    "name": "JavaScript"
+                },
+                {
+                    "name": "Flutter",
+                    "icon": "assets/icons/skills/flutter.svg"
+                },
+                {
+                    "name": "Bloc, Riverpod, Provider"
+                },
+                {
+                    "name": "GetIt, Hilt"
+                },
+                {
+                    "name": "Isolate & Event Loop"
+                },
+                {
+                    "name": "Streams & Futures"
+                },
+                {
+                    "name": "RxDart"
+                },
+                {
+                    "name": "Plugins & Packages"
+                },
+                {
+                    "name": "Animations"
+                },
+                {
+                    "name": "Render Objects"
+                }
+            ]
+        },
+        {
+            "category": "Back-End & Data",
+            "categoryIcon": "assets/icons/skills/devOps.svg",
+            "skills": [
+                {
+                    "name": "Java",
+                    "icon": "assets/icons/skills/java.svg"
+                },
+                {
+                    "name": "Node.js",
+                    "icon": "assets/icons/skills/node.svg"
+                },
+                {
+                    "name": "Dart Backend"
+                },
+                {
+                    "name": "MSSQL"
+                },
+                {
+                    "name": "MongoDB"
+                },
+                {
+                    "name": "Hive"
+                },
+                {
+                    "name": "Isar"
+                },
+                {
+                    "name": "Sqfentity"
+                },
+                {
+                    "name": "Floor"
+                },
+                {
+                    "name": "REST"
+                },
+                {
+                    "name": "GraphQL"
+                },
+                {
+                    "name": "gRPC"
+                },
+                {
+                    "name": "SOAP"
+                }
+            ]
+        },
+        {
+            "category": "Architecture & Best Practices",
+            "categoryIcon": "assets/icons/skills/library.svg",
+            "skills": [
+                {
+                    "name": "Clean, MVVM, DDD"
+                },
+                {
+                    "name": "SOLID"
+                },
+                {
+                    "name": "Clean Code"
+                },
+                {
+                    "name": "DRY"
+                },
+                {
+                    "name": "KISS"
+                },
+                {
+                    "name": "Design Patterns"
+                },
+                {
+                    "name": "TDD"
+                },
+                {
+                    "name": "E2E Tests"
+                },
+                {
+                    "name": "A/B Testing"
+                },
+                {
+                    "name": "Fluttium"
+                },
+                {
+                    "name": "Patrol"
+                },
+                {
+                    "name": "Codemagic"
+                },
+                {
+                    "name": "GitHub Actions"
+                },
+                {
+                    "name": "Jenkins",
+                    "icon": "assets/icons/skills/jenkins.svg"
+                },
+                {
+                    "name": "fastlane"
+                },
+                {
+                    "name": "GitHub",
+                    "icon": "assets/icons/skills/github.svg"
+                },
+                {
+                    "name": "GitLab",
+                    "icon": "assets/icons/skills/gitlab.svg"
+                },
+                {
+                    "name": "Codecommit"
+                }
+            ]
+        },
+        {
+            "category": "Tools & Professional Skills",
+            "categoryIcon": "assets/icons/skills/communication.svg",
+            "skills": [
+                {
+                    "name": "Firebase",
+                    "icon": "assets/icons/skills/firebase.svg"
+                },
+                {
+                    "name": "CLI Development"
+                },
+                {
+                    "name": "Tokens & Design Systems"
+                },
+                {
+                    "name": "Adobe XD"
+                },
+                {
+                    "name": "Figma",
+                    "icon": "assets/icons/skills/figma.svg"
+                },
+                {
+                    "name": "Rive"
+                },
+                {
+                    "name": "Usercentrics"
+                },
+                {
+                    "name": "Teamwork"
+                },
+                {
+                    "name": "Problem-solving"
+                },
+                {
+                    "name": "Active learning"
+                },
+                {
+                    "name": "Mentorship"
+                },
+                {
+                    "name": "Creative"
+                }
+            ]
+        }
+    ]
+}

@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/features/about/model/data/about_data.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
 class ExperienceYears extends StatelessWidget {
+  final AboutData aboutData;
+
   const ExperienceYears({
     super.key,
+    required this.aboutData,
   });
 
   @override
   Widget build(BuildContext context) {
     return context.isDesktop || context.isLaptop
-        ? _buildDesktopWrapper(context)
-        : _buildMobileWrapper(context);
+        ? _buildDesktopWrapper(context, aboutData)
+        : _buildMobileWrapper(context, aboutData);
   }
 }
 
-_buildMobileWrapper(BuildContext context) {
+Widget _buildMobileWrapper(BuildContext context, AboutData aboutData) {
   return Column(
     mainAxisSize: MainAxisSize.max,
     spacing: 12,
@@ -41,7 +45,7 @@ _buildMobileWrapper(BuildContext context) {
                 ),
               ),
               Text(
-                '16+ Years',
+                aboutData.statistics.experienceYears,
                 style: TextStyle(
                   fontFamily: 'Zodiak',
                   fontSize: 22,
@@ -66,7 +70,7 @@ _buildMobileWrapper(BuildContext context) {
             spacing: 20,
             children: [
               Text(
-                'Experience',
+                'Projects',
                 style: TextStyle(
                   fontFamily: 'Zodiak',
                   fontSize: 14,
@@ -74,7 +78,7 @@ _buildMobileWrapper(BuildContext context) {
                 ),
               ),
               Text(
-                '16+ Years',
+                aboutData.statistics.projectsCount,
                 style: TextStyle(
                   fontFamily: 'Zodiak',
                   fontSize: 22,
@@ -90,7 +94,7 @@ _buildMobileWrapper(BuildContext context) {
   );
 }
 
-Widget _buildDesktopWrapper(BuildContext context) {
+Widget _buildDesktopWrapper(BuildContext context, AboutData aboutData) {
   return Row(
     mainAxisSize: MainAxisSize.max,
     spacing: 12,
@@ -117,7 +121,7 @@ Widget _buildDesktopWrapper(BuildContext context) {
                   ),
                 ),
                 Text(
-                  '16+ Years',
+                  aboutData.statistics.experienceYears,
                   style: TextStyle(
                     fontFamily: 'Zodiak',
                     fontSize: 22,
@@ -152,7 +156,7 @@ Widget _buildDesktopWrapper(BuildContext context) {
                   ),
                 ),
                 Text(
-                  '70+ Projects',
+                  aboutData.statistics.projectsCount,
                   style: TextStyle(
                     fontFamily: 'Zodiak',
                     fontSize: 22,

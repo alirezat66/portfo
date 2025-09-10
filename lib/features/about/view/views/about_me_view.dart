@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/gen/assets.gen.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/features/about/model/data/about_data.dart';
 
 class AboutMeView extends StatelessWidget {
+  final AboutData aboutData;
+
   const AboutMeView({
     super.key,
+    required this.aboutData,
   });
 
   @override
@@ -21,7 +24,7 @@ class AboutMeView extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 36,
-              child: Image.asset(Assets.images.profileImageHover.path),
+              child: Image.asset(aboutData.profile.profileImageHoverPath),
             ),
             Expanded(
                 child: Column(
@@ -29,7 +32,7 @@ class AboutMeView extends StatelessWidget {
               spacing: 12,
               children: [
                 Text(
-                  'Reza Taghizadeh',
+                  aboutData.profile.name,
                   style: TextStyle(
                     fontFamily: 'Zodiak',
                     fontSize: 28,
@@ -38,7 +41,7 @@ class AboutMeView extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '''Senior Software Engineer, crafting scalable apps using robust architectures. Skilled in Android, iOA and Flutter, focusing on SOLID and test-driven development. Delivered apps with high-quality, adaptable code under tight deadlines.''',
+                  aboutData.profile.description,
                   style: TextStyle(
                     fontSize: 20,
                     color: context.basicColors.surfaceColor,

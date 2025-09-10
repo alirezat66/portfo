@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
 import 'package:portfolio/core/view/widgets/glow_card.dart';
-import 'package:portfolio/features/about/models/work.dart';
+import 'package:portfolio/features/about/model/data/about_data.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
 class WorkSummeryCard extends StatelessWidget {
-  final WorkModel work;
+  final WorkExperience work;
   const WorkSummeryCard({super.key, required this.work});
 
   @override
@@ -21,7 +21,7 @@ class WorkSummeryCard extends StatelessWidget {
           spacing: 32,
           children: [
             Offstage(
-              offstage:  !context.isDesktop,
+              offstage: !context.isDesktop,
               child: Row(
                 children: [
                   Column(

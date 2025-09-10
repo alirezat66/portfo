@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
-import 'package:portfolio/features/about/models/skill.dart';
+import 'package:portfolio/features/about/model/data/about_data.dart';
 import 'package:portfolio/features/about/view/widgets/skill_chip.dart';
 
 class SkillCategoryView extends StatelessWidget {
-  final SkillCategoryModel category;
+  final SkillCategory category;
   const SkillCategoryView({super.key, required this.category});
 
   @override

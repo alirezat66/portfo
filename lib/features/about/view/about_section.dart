@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/core/di/service_locator.dart';
 import 'package:portfolio/core/view/widgets/section_widget.dart';
 import 'package:portfolio/features/about/view/views/about_me_view.dart';
 import 'package:portfolio/features/about/view/views/experience_view.dart';
@@ -6,6 +8,7 @@ import 'package:portfolio/features/about/view/views/experience_years.dart';
 import 'package:portfolio/features/about/view/views/skill/skill_view.dart';
 import 'package:portfolio/features/about/view/views/social_view.dart';
 import 'package:portfolio/features/about/view/views/work_experience_view.dart';
+import 'package:portfolio/features/about/view_model/about_cubit.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
 class AboutSection extends StatelessWidget {
@@ -13,15 +16,69 @@ class AboutSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SectionWidget(
-      title: 'About Me',
-      child: context.isDesktop || context.isLaptop
-          ? _buildDesktopAndLaptop(context)
-          : _buildTabletMobile(context),
+    return BlocProvider(
+      create: (_) => getIt<AboutCubit>()..loadAboutData(),
+      child: const AboutSectionContent(),
+    );
+  }
+}
+
+class AboutSectionContent extends StatelessWidget {
+  const AboutSectionContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AboutCubit, AboutState>(
+      builder: (context, state) {
+        if (state is AboutLoading) {
+          return SectionWidget(
+            title: 'About Me',
+            child: const SizedBox(
+              height: 200,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
+          );
+        }
+
+        if (state is AboutError) {
+          return SectionWidget(
+            title: 'About Me',
+            child: SizedBox(
+              height: 200,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Error: ${state.message}'),
+                    ElevatedButton(
+                      onPressed: () =>
+                          context.read<AboutCubit>().refreshAboutData(),
+                      child: const Text('Retry'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+
+        if (state is AboutLoaded) {
+          return SectionWidget(
+            title: 'About Me',
+            child: context.isDesktop || context.isLaptop
+                ? _buildDesktopAndLaptop(context, state.aboutData)
+                : _buildTabletMobile(context, state.aboutData),
+          );
+        }
+
+        return const SizedBox.shrink();
+      },
     );
   }
 
-  _buildDesktopAndLaptop(BuildContext context) {
+  Widget _buildDesktopAndLaptop(BuildContext context, aboutData) {
     return IntrinsicHeight(
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -30,7 +87,7 @@ class AboutSection extends StatelessWidget {
         children: [
           Expanded(
             flex: 1,
-            child: ExperienceView(),
+            child: ExperienceView(aboutData: aboutData),
           ),
           Expanded(
             flex: 2,
@@ -46,17 +103,17 @@ class AboutSection extends StatelessWidget {
                       if (context.isDesktop)
                         Expanded(
                           flex: 1,
-                          child: SocialView(),
+                          child: SocialView(aboutData: aboutData),
                         ),
                       Expanded(
                         flex: 2,
-                        child: AboutMeView(),
+                        child: AboutMeView(aboutData: aboutData),
                       ),
                     ],
                   ),
                 ),
                 Expanded(
-                  child: SkillView(),
+                  child: SkillView(aboutData: aboutData),
                 ),
               ],
             ),
@@ -65,25 +122,25 @@ class AboutSection extends StatelessWidget {
       ),
     );
   }
-}
 
-_buildTabletMobile(BuildContext context) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    spacing: 16,
-    children: [
-      AboutMeView(),
-      WorkExperienceView(),
-      IntrinsicHeight(
-        child: Row(
-          spacing: 12,
-          children: [
-            Expanded(child: ExperienceYears()),
-            Expanded(child: SocialView()),
-          ],
+  Widget _buildTabletMobile(BuildContext context, aboutData) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 16,
+      children: [
+        AboutMeView(aboutData: aboutData),
+        WorkExperienceView(aboutData: aboutData),
+        IntrinsicHeight(
+          child: Row(
+            spacing: 12,
+            children: [
+              Expanded(child: ExperienceYears(aboutData: aboutData)),
+              Expanded(child: SocialView(aboutData: aboutData)),
+            ],
+          ),
         ),
-      ),
-      SkillView(),
-    ],
-  );
+        SkillView(aboutData: aboutData),
+      ],
+    );
+  }
 }

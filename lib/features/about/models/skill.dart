@@ -1,4 +1,8 @@
+// Temporary compatibility model for SkillCategoryModel
+// This will be removed once all references are updated to use the new data structure
+
 import 'package:portfolio/core/gen/assets.gen.dart';
+import '../model/data/about_data.dart';
 
 class SkillCategoryModel {
   final String category;
@@ -121,14 +125,4 @@ class SkillCategoryModel {
       ],
     );
   }
-}
-
-class Skill {
-  final String name;
-  final String? icon;
-
-  const Skill({
-    required this.name,
-    this.icon,
-  });
 }
