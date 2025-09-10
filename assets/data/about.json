@@ -148,7 +148,7 @@
         },
         {
             "category": "Back-End & Data",
-            "categoryIcon": "assets/icons/skills/devOps.svg",
+            "categoryIcon": "assets/icons/skills/dev_ops.svg",
             "skills": [
                 {
                     "name": "Java",

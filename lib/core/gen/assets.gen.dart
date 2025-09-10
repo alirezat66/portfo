@@ -26,6 +26,9 @@ class $AssetsDataGen {
   /// File path: assets/data/companies.json
   String get companies => 'assets/data/companies.json';
 
+  /// File path: assets/data/footer.json
+  String get footer => 'assets/data/footer.json';
+
   /// File path: assets/data/profile.json
   String get profile => 'assets/data/profile.json';
 
@@ -34,7 +37,7 @@ class $AssetsDataGen {
 
   /// List of all assets
   List<String> get values =>
-      [about, articles, companies, profile, testimonials];
+      [about, articles, companies, footer, profile, testimonials];
 }
 
 class $AssetsIconsGen {

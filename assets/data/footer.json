@@ -1,0 +1,75 @@
+{
+    "copyright": {
+        "text": "© 2023 Spotlight",
+        "year": "2023",
+        "company": "Spotlight"
+    },
+    "socialLinks": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/alirezat66",
+            "iconPath": "assets/icons/github.svg",
+            "tooltip": "GitHub Profile"
+        },
+        {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/in/alirezat66/",
+            "iconPath": "assets/icons/linkedin.svg",
+            "tooltip": "LinkedIn Profile"
+        },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/@taghiTechTalks",
+            "iconPath": "assets/icons/youtube.svg",
+            "tooltip": "YouTube Channel"
+        },
+        {
+            "name": "Medium",
+            "url": "https://medium.com/@alirezataghizadeh66",
+            "iconPath": "assets/icons/medium.svg",
+            "tooltip": "Medium Articles"
+        },
+        {
+            "name": "Telegram",
+            "url": "https://t.me/alirezat_66",
+            "iconPath": "assets/icons/telegram.svg",
+            "tooltip": "Telegram Contact"
+        }
+    ],
+    "navigationLinks": [
+        {
+            "title": "Works",
+            "route": "/works",
+            "isActive": false
+        },
+        {
+            "title": "Blog",
+            "route": "/blog",
+            "isActive": false
+        },
+        {
+            "title": "About",
+            "route": "/about",
+            "isActive": false
+        }
+    ],
+    "contactInfo": {
+        "email": "alirezataghizadeh66@gmail.com",
+        "phone": "+1 (555) 123-4567",
+        "location": "Remote / Available Worldwide"
+    },
+    "quickLinks": [
+        {
+            "title": "Privacy Policy",
+            "url": "/privacy"
+        },
+        {
+            "title": "Terms of Service",
+            "url": "/terms"
+        },
+        {
+            "title": "Contact",
+            "url": "/contact"
+        }
+    ]
+}
