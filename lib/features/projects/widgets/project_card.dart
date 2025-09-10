@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/view/increase_hover_ext.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/features/works/model/data/work_item.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../models/project.dart';
 
 class ProjectCard extends StatelessWidget {
-  final Project project;
+  final WorkItem workItem;
 
   const ProjectCard({
     super.key,
-    required this.project,
+    required this.workItem,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (project.projectUrl != null) {
-          launchUrl(Uri.parse(project.projectUrl!));
+        if (workItem.liveUrl != null) {
+          launchUrl(Uri.parse(workItem.liveUrl!));
         }
       },
       child: Container(
@@ -34,36 +34,38 @@ class ProjectCard extends StatelessWidget {
             Positioned.fill(
                 child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
-              child: Image.asset(project.imageUrl, fit: BoxFit.cover),
+              child: Image.asset(workItem.imagePath, fit: BoxFit.cover),
             )),
-            if (project.tags.isNotEmpty) ...[
-              Positioned(
-                top: 48,
-                left: 48,
-                child: Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: project.tags.map((tag) {
-                    return Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      decoration: BoxDecoration(
-                        color: context.basicColors.backgroundColor
-                            .withValues(alpha: 0.6),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        tag,
-                        style: const TextStyle(
-                          color: Color(0xFFB3B3B3),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+            if (workItem.technologies.isNotEmpty) ...[
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 48, left: 48, right: 48),
+                  child: Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: workItem.technologies.map((tag) {
+                      return Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 6,
                         ),
-                      ),
-                    );
-                  }).toList(),
+                        decoration: BoxDecoration(
+                          color: context.basicColors.backgroundColor
+                              .withValues(alpha: 0.6),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          tag,
+                          style: const TextStyle(
+                            color: Color(0xFFB3B3B3),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
@@ -95,7 +97,7 @@ class ProjectCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(project.title,
+                      Text(workItem.title,
                           style: context.textTheme.headlineMedium!.copyWith(
                             fontFamily: 'Zodiak',
                             fontSize: 24,
@@ -104,7 +106,7 @@ class ProjectCard extends StatelessWidget {
                       SizedBox(
                         height: 12,
                       ),
-                      Text(project.description,
+                      Text(workItem.description,
                           style: context.textTheme.bodyMedium!.copyWith(
                             fontSize: 18,
                             color: context.basicColors.textSecondaryColor,
@@ -119,7 +121,7 @@ class ProjectCard extends StatelessWidget {
             ),
           ],
         ),
-      ), 
+      ),
     ).increaseSizeOnHover(1.02);
   }
 }

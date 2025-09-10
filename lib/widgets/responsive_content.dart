@@ -89,7 +89,7 @@ class ResponsiveConfig {
 extension ResponsiveExtension on BuildContext {
   ResponsiveBreakpoint get breakpoint {
     try {
-      final screenWidth = MediaQuery.of(this).size.width;
+      final screenWidth = MediaQuery.sizeOf(this).width;
       if (screenWidth >= 1440) return ResponsiveBreakpoint.desktop;
       if (screenWidth >= 1024) return ResponsiveBreakpoint.laptop;
       if (screenWidth >= 810) return ResponsiveBreakpoint.tablet;

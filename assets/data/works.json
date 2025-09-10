@@ -1,0 +1,113 @@
+{
+    "works": [
+        {
+            "id": "1",
+            "title": "Fydez Platform",
+            "description": "A comprehensive mobile application for furniture shopping with advanced filtering and AR features.",
+            "imagePath": "assets/images/works/fydez/fydez_main.png",
+            "technologies": [
+                "Flutter",
+                "Dart",
+                "Firebase",
+                "Dart Backend",
+                "Flutter Web",
+                "AI Base",
+                "White Label",
+                "CI/CD",
+                "Code Magic",
+                "Token Theme Builder"
+            ],
+            "liveUrl": "https://fydez.com",
+            "category": "App Generator",
+            "order": 4
+        },
+        {
+            "id": "2",
+            "title": "LoyalMate Platform",
+            "description": "Customer loyalty management platform with gamification features and analytics dashboard.",
+            "imagePath": "assets/images/works/loyalmate/loyalmate_main.png",
+            "technologies": [
+                "Flutter",
+                "Firebase",
+                "Node.js",
+                "NFC",
+                "Stripe",
+                "Bluetooth",
+                "Flutter Web"
+            ],
+            "liveUrl": "https://loyalmate.com",
+            "category": "Loyalty App",
+            "order": 3
+        },
+        {
+            "id": "3",
+            "title": "Moebel.de Mobile",
+            "description": "E-commerce mobile application for furniture shopping with seamless checkout experience.",
+            "imagePath": "assets/images/works/moebel/moebel_main.png",
+            "technologies": [
+                "Flutter",
+                "Dart",
+                "GDPR",
+                "CI/CD",
+                "Code Magic",
+                "Contentful CMS",
+                "Typescript",
+                "Algolia",
+                "AI searching",
+                "Flutter Web"
+            ],
+            "liveUrl": "https://moebel.de",
+            "category": "E-commerce",
+            "order": 2
+        },
+        {
+            "id": "4",
+            "title": "Oraclium",
+            "description": "Business intelligence platform with real-time data visualization and reporting tools.",
+            "imagePath": "assets/images/works/oraclium/oraclium_main.png",
+            "technologies": [
+                "Flutter",
+                "AI Base",
+                "Flutter Web",
+                "Ads SDK",
+                "CI/CD"
+            ],
+            "liveUrl": "https://oraclium.com",
+            "category": "Analytics",
+            "order": 6
+        },
+        {
+            "id": "5",
+            "title": "RemoteDerm Telemedicine",
+            "description": "Telemedicine platform for dermatology consultations with AI-powered skin analysis.",
+            "imagePath": "assets/images/works/remotederm/remotederm_main.png",
+            "technologies": [
+                "Flutter",
+                "Python",
+                "ReactJs",
+                "TensorFlow",
+                "WebRTC",
+                "AWS",
+                "CodeCommit"
+            ],
+            "liveUrl": "https://remotederm.ca",
+            "category": "Healthcare",
+            "order": 5
+        },
+        {
+            "id": "6",
+            "title": "Tuktoro",
+            "description": "Multi-vendor marketplace platform with advanced search and recommendation engine.",
+            "imagePath": "assets/images/works/tuktoro/tuktoro_main.jpg",
+            "technologies": [
+                "Flutter",
+                "Docker",
+                "TensorFlow",
+                "Rive"
+            ],
+            "liveUrl": "https://tuktoro.com",
+            "category": "Marketplace",
+            "order": 1
+        }
+    ]
+}

@@ -7,6 +7,7 @@ import '../../features/testimonial/testimonials_di.dart';
 import '../../features/articles/articles_di.dart';
 import '../../features/about/about_di.dart';
 import '../../features/footer/footer_di.dart';
+import '../../features/works/works_di.dart';
 
 final getIt = GetIt.instance;
 
@@ -19,4 +20,5 @@ void setupServiceLocator() {
   configureArticlesDependencies();
   configureAboutDependencies();
   configureFooterDependencies();
+  configureWorksDependencies();
 }

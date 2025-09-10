@@ -58,14 +58,16 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
                     if (context.isDesktop) ...[
                       const NavigationMenuItems(),
                       const Spacer(),
-                      const SearchBarWidget(),
+                      Visibility(
+                          visible: false, child: const SearchBarWidget()),
                       const Spacer(),
                       const SocialMediaIcons(),
                       const SizedBox(width: 16),
                       const LetsTalkButton(),
                     ] else if (context.isLaptop) ...[
                       const Spacer(),
-                      const SearchBarWidget(),
+                      Visibility(
+                          visible: false, child: const SearchBarWidget()),
                       const Spacer(),
                       MyDrawerButton(isMobileMenuOpen: state.isMobileMenuOpen)
                     ] else ...[

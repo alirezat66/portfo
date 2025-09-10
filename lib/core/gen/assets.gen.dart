@@ -26,6 +26,9 @@ class $AssetsDataGen {
   /// File path: assets/data/companies.json
   String get companies => 'assets/data/companies.json';
 
+  /// File path: assets/data/cv.pdf
+  String get cv => 'assets/data/cv.pdf';
+
   /// File path: assets/data/footer.json
   String get footer => 'assets/data/footer.json';
 
@@ -35,9 +38,12 @@ class $AssetsDataGen {
   /// File path: assets/data/testimonials.json
   String get testimonials => 'assets/data/testimonials.json';
 
+  /// File path: assets/data/works.json
+  String get works => 'assets/data/works.json';
+
   /// List of all assets
   List<String> get values =>
-      [about, articles, companies, footer, profile, testimonials];
+      [about, articles, companies, cv, footer, profile, testimonials, works];
 }
 
 class $AssetsIconsGen {
@@ -283,6 +289,10 @@ class $AssetsImagesWorksGen {
   /// Directory path: assets/images/works/remotederm
   $AssetsImagesWorksRemotedermGen get remotederm =>
       const $AssetsImagesWorksRemotedermGen();
+
+  /// Directory path: assets/images/works/tuktoro
+  $AssetsImagesWorksTuktoroGen get tuktoro =>
+      const $AssetsImagesWorksTuktoroGen();
 }
 
 class $AssetsImagesWorksFydezGen {
@@ -382,16 +392,36 @@ class $AssetsImagesWorksRemotedermGen {
       [oracliumThree, remotedermMain, remotedermTwo];
 }
 
+class $AssetsImagesWorksTuktoroGen {
+  const $AssetsImagesWorksTuktoroGen();
+
+  /// File path: assets/images/works/tuktoro/tuktoro_four.jpg
+  AssetGenImage get tuktoroFour =>
+      const AssetGenImage('assets/images/works/tuktoro/tuktoro_four.jpg');
+
+  /// File path: assets/images/works/tuktoro/tuktoro_main.jpg
+  AssetGenImage get tuktoroMain =>
+      const AssetGenImage('assets/images/works/tuktoro/tuktoro_main.jpg');
+
+  /// File path: assets/images/works/tuktoro/tuktoro_three.jpg
+  AssetGenImage get tuktoroThree =>
+      const AssetGenImage('assets/images/works/tuktoro/tuktoro_three.jpg');
+
+  /// File path: assets/images/works/tuktoro/tuktoro_two.jpg
+  AssetGenImage get tuktoroTwo =>
+      const AssetGenImage('assets/images/works/tuktoro/tuktoro_two.jpg');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [tuktoroFour, tuktoroMain, tuktoroThree, tuktoroTwo];
+}
+
 class Assets {
   const Assets._();
 
   static const $AssetsDataGen data = $AssetsDataGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
-  static const SvgGenImage simpleTest = SvgGenImage('simple_test.svg');
-
-  /// List of all assets
-  static List<SvgGenImage> get values => [simpleTest];
 }
 
 class AssetGenImage {

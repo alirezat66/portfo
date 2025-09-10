@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../features/about/view/about_page.dart';
+import '../../../features/blog/view/blog_page.dart';
 import '../../../features/home/view/home_page.dart';
+import '../../../features/works/view/works_page.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
@@ -13,20 +15,17 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/works',
       name: 'works',
-      builder: (context, state) =>
-          const Scaffold(body: Center(child: Text('Works Page'))),
+      builder: (context, state) => const WorksPage(),
     ),
     GoRoute(
       path: '/blog',
       name: 'blog',
-      builder: (context, state) =>
-          const Scaffold(body: Center(child: Text('Blog Page'))),
+      builder: (context, state) => const BlogPage(),
     ),
     GoRoute(
       path: '/about',
       name: 'about',
-      builder: (context, state) =>
-          const Scaffold(body: Center(child: Text('About Page'))),
+      builder: (context, state) => const AboutPage(),
     ),
   ],
 );

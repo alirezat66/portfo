@@ -12,53 +12,49 @@ import 'package:portfolio/features/about/view_model/about_cubit.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
 class AboutSection extends StatelessWidget {
-  const AboutSection({super.key});
+  final bool isHomePage;
+  const AboutSection({super.key, this.isHomePage = true});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => getIt<AboutCubit>()..loadAboutData(),
-      child: const AboutSectionContent(),
+      child: AboutSectionContent(isHomePage: isHomePage),
     );
   }
 }
 
 class AboutSectionContent extends StatelessWidget {
-  const AboutSectionContent({super.key});
+  final bool isHomePage;
+  const AboutSectionContent({super.key, this.isHomePage = true});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AboutCubit, AboutState>(
       builder: (context, state) {
         if (state is AboutLoading) {
-          return SectionWidget(
-            title: 'About Me',
-            child: const SizedBox(
-              height: 200,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
+          return const SizedBox(
+            height: 200,
+            child: Center(
+              child: CircularProgressIndicator(),
             ),
           );
         }
 
         if (state is AboutError) {
-          return SectionWidget(
-            title: 'About Me',
-            child: SizedBox(
-              height: 200,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Error: ${state.message}'),
-                    ElevatedButton(
-                      onPressed: () =>
-                          context.read<AboutCubit>().refreshAboutData(),
-                      child: const Text('Retry'),
-                    ),
-                  ],
-                ),
+          return SizedBox(
+            height: 200,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Error: ${state.message}'),
+                  ElevatedButton(
+                    onPressed: () =>
+                        context.read<AboutCubit>().refreshAboutData(),
+                    child: const Text('Retry'),
+                  ),
+                ],
               ),
             ),
           );
@@ -66,7 +62,7 @@ class AboutSectionContent extends StatelessWidget {
 
         if (state is AboutLoaded) {
           return SectionWidget(
-            title: 'About Me',
+            title: !isHomePage ? null : 'About Me',
             child: context.isDesktop || context.isLaptop
                 ? _buildDesktopAndLaptop(context, state.aboutData)
                 : _buildTabletMobile(context, state.aboutData),
