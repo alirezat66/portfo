@@ -1,0 +1,40 @@
+{
+    "name": "Reza Taghizadeh",
+    "title": "Senior Flutter Developer",
+    "description": "I love structured code and clean design. I'm a senior flutter developer with a passion for building mobile apps. With more than 15 years of experience in the field, I'm a master of my craft and I'm always looking for new challenges and opportunities to grow.",
+    "profileImagePath": "assets/images/profile_image.png",
+    "profileImageHoverPath": "assets/images/profile_image_hover.png",
+    "availabilityStatus": "available",
+    "socialLinks": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/rezataghizadeh",
+            "iconPath": "assets/icons/github.svg",
+            "tooltip": "GitHub Profile"
+        },
+        {
+            "name": "LinkedIn",
+            "url": "https://linkedin.com/in/rezataghizadeh",
+            "iconPath": "assets/icons/linkedin.svg",
+            "tooltip": "LinkedIn Profile"
+        },
+        {
+            "name": "YouTube",
+            "url": "https://youtube.com/@rezataghizadeh",
+            "iconPath": "assets/icons/youtube.svg",
+            "tooltip": "YouTube Channel"
+        },
+        {
+            "name": "Telegram",
+            "url": "https://t.me/rezataghizadeh",
+            "iconPath": "assets/icons/telegram.svg",
+            "tooltip": "Telegram Contact"
+        },
+        {
+            "name": "Medium",
+            "url": "https://medium.com/@rezataghizadeh",
+            "iconPath": "assets/icons/medium.svg",
+            "tooltip": "Medium Articles"
+        }
+    ]
+}

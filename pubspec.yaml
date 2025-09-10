@@ -45,6 +45,7 @@ flutter:
     - assets/images/works/oraclium/
     - assets/images/testimonials/
     - assets/icons/skills/
+    - assets/data/
   fonts:
     - family: Zodiak
       fonts:

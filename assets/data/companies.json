@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Tuktoro",
+        "logo": "assets/images/companies/tuktoro.png",
+        "url": "https://tuktoro.com/en"
+    },
+    {
+        "name": "Moebel",
+        "logo": "assets/images/companies/moebel.png",
+        "url": "https://www.moebel.de"
+    },
+    {
+        "name": "It boosts",
+        "logo": "assets/images/companies/itboost.png",
+        "url": "https://itboost.com.au/"
+    },
+    {
+        "name": "Remote Derm",
+        "logo": "assets/images/companies/remote_derm.png",
+        "url": "https://www.remotederm.ca"
+    },
+    {
+        "name": "Igmu",
+        "logo": "assets/images/companies/igmu.png",
+        "url": "https://www.linkedin.com/company/igmu/"
+    },
+    {
+        "name": "Delta",
+        "logo": "assets/images/companies/delta.png",
+        "url": "https://delta.ir/tehran"
+    },
+    {
+        "name": "Armancoders",
+        "logo": "assets/images/companies/armancoders.png",
+        "url": "https://www.linkedin.com/company/armancoders/posts/?feedView=all"
+    }
+]

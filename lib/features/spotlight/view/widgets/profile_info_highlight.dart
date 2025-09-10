@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
+import 'package:portfolio/features/spotlight/models/data/profile.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
 class ProfileInfoHighlight extends StatelessWidget {
-  const ProfileInfoHighlight({super.key});
+  final Profile profile;
+
+  const ProfileInfoHighlight({
+    super.key,
+    required this.profile,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,7 @@ class ProfileInfoHighlight extends StatelessWidget {
               height: 1.1,
             ),
             children: [
-              const TextSpan(text: "I'm Reza Taghizadeh"),
+              TextSpan(text: "I'm ${profile.name}"),
               TextSpan(
                 text: ".\n",
                 style: TextStyle(color: context.basicColors.surfaceBrandColor),
@@ -40,8 +46,8 @@ class ProfileInfoHighlight extends StatelessWidget {
               const TextSpan(text: "I Code "),
               TextSpan(
                 text: "* ",
-                  style: TextStyle(color: context.basicColors.surfaceBrandColor),
-                ),
+                style: TextStyle(color: context.basicColors.surfaceBrandColor),
+              ),
               const TextSpan(text: "Create\n"),
               TextSpan(
                 text: "* ",
@@ -52,7 +58,7 @@ class ProfileInfoHighlight extends StatelessWidget {
           ),
         ),
         Text(
-          "I love structured code and clean design. I'm a senior flutter developer with a passion for building mobile apps. With more than 15 years of experience in the field, I'm a master of my craft and I'm always looking for new challenges and opportunities to grow.",
+          profile.description,
           textAlign: context.isDesktop || context.isLaptop
               ? TextAlign.start
               : TextAlign.center,

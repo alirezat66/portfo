@@ -14,6 +14,19 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $AssetsDataGen {
+  const $AssetsDataGen();
+
+  /// File path: assets/data/companies.json
+  String get companies => 'assets/data/companies.json';
+
+  /// File path: assets/data/profile.json
+  String get profile => 'assets/data/profile.json';
+
+  /// List of all assets
+  List<String> get values => [companies, profile];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -337,6 +350,7 @@ class $AssetsImagesWorksRemotedermGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsDataGen data = $AssetsDataGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }

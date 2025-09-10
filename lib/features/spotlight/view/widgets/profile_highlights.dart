@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/models/availability_status.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
-import 'package:portfolio/features/home/spotlight/widgets/profile_info_highlight.dart';
+import 'package:portfolio/features/spotlight/models/data/profile.dart';
+import 'package:portfolio/features/spotlight/view/widgets/profile_info_highlight.dart';
 import 'package:portfolio/widgets/availability_widget.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
 class ProfileHighlights extends StatelessWidget {
-  const ProfileHighlights({super.key});
+  final Profile profile;
+
+  const ProfileHighlights({
+    super.key,
+    required this.profile,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +21,8 @@ class ProfileHighlights extends StatelessWidget {
           : CrossAxisAlignment.center,
       spacing: 24,
       children: [
-        const AvailabilityWidget(status: AvailabilityStatus.available),
-        const ProfileInfoHighlight(),
+        AvailabilityWidget(status: profile.availabilityStatus),
+        ProfileInfoHighlight(profile: profile),
         Row(
           mainAxisAlignment: context.isDesktop || context.isLaptop
               ? MainAxisAlignment.start

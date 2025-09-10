@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/gen/assets.gen.dart';
 import 'package:portfolio/core/view/increase_hover_ext.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
 import 'package:portfolio/core/view/widgets/social_item/social_item_widget.dart';
 import 'package:portfolio/features/about/models/social.dart';
+import 'package:portfolio/features/spotlight/models/data/profile.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
 class ProfileImage extends StatelessWidget {
-  const ProfileImage({super.key});
+  final Profile profile;
+
+  const ProfileImage({
+    super.key,
+    required this.profile,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +47,10 @@ class ProfileImage extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: Center(
-                    child: Image.asset(Assets.images.profileImage.path)
+                    child: Image.asset(profile.profileImagePath)
                         .changeWidgetOnHover(
                             duration: const Duration(milliseconds: 500),
-                            Image.asset(Assets.images.profileImageHover.path)),
+                            Image.asset(profile.profileImageHoverPath)),
                   ),
                 ),
               ), // Social media icons container
@@ -65,30 +70,26 @@ class ProfileImage extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     spacing: context.isDesktop ? 16.0 : 12.0,
-                    children: [
-                      SocialIconWidget.circle(
+                    children: profile.socialLinks.take(3).map((socialLink) {
+                      return SocialIconWidget.circle(
                         context,
-                        Social.github(),
+                        _createSocialFromLink(socialLink),
                         radius: context.isDesktop ? 24.0 : 20.0,
                         iconSize: context.isDesktop ? 24.0 : 16.0,
-                      ),
-                      SocialIconWidget.circle(
-                        context,
-                        Social.linkedIn(),
-                        radius: context.isDesktop ? 24.0 : 20.0,
-                        iconSize: context.isDesktop ? 24.0 : 16.0,
-                      ),
-                      SocialIconWidget.circle(
-                        context,
-                        Social.youtube(),
-                        radius: context.isDesktop ? 24.0 : 20.0,
-                        iconSize: context.isDesktop ? 24.0 : 16.0,
-                      ),
-                    ],
+                      );
+                    }).toList(),
                   ),
                 ),
               ),
             ],
           );
+  }
+
+  Social _createSocialFromLink(SocialLink socialLink) {
+    return Social(
+      url: socialLink.url,
+      icon: socialLink.iconPath,
+      tooltip: socialLink.tooltip,
+    );
   }
 }
