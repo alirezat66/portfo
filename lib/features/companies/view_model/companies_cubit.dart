@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../models/data/company.dart';
-import '../models/repositories/companies_repository.dart';
+import '../model/data/company.dart';
+import '../model/repositories/companies_repository.dart';
 
 // States
 abstract class CompaniesState extends Equatable {

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/core/di/service_locator.dart';
 import 'package:portfolio/core/view/widgets/glow_card.dart';
 import 'package:portfolio/core/view/widgets/section_widget.dart';
-import 'package:portfolio/features/testimonial/model/testimonial.dart';
+import 'package:portfolio/features/testimonial/model/data/testimonial.dart';
 import 'package:portfolio/features/testimonial/view/testimonial_widget.dart';
+import 'package:portfolio/features/testimonial/view_model/testimonials_cubit.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
 class TestimonialView extends StatelessWidget {
@@ -10,15 +13,68 @@ class TestimonialView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final testimonials = Testimonial.testimonials;
+    return BlocProvider(
+      create: (_) => getIt<TestimonialsCubit>()..loadTestimonials(),
+      child: const TestimonialContent(),
+    );
+  }
+}
 
-    // Get different number of testimonials based on screen size
-    final displayedTestimonials =
-        _getDisplayedTestimonials(context, testimonials);
+class TestimonialContent extends StatelessWidget {
+  const TestimonialContent({super.key});
 
-    return SectionWidget(
-      title: 'Testimonials',
-      child: _buildTestimonialLayout(context, displayedTestimonials),
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TestimonialsCubit, TestimonialsState>(
+      builder: (context, state) {
+        if (state is TestimonialsLoading) {
+          return SectionWidget(
+            title: 'Testimonials',
+            child: const SizedBox(
+              height: 200,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
+          );
+        }
+
+        if (state is TestimonialsError) {
+          return SectionWidget(
+            title: 'Testimonials',
+            child: SizedBox(
+              height: 200,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Error: ${state.message}'),
+                    ElevatedButton(
+                      onPressed: () => context
+                          .read<TestimonialsCubit>()
+                          .refreshTestimonials(),
+                      child: const Text('Retry'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+
+        if (state is TestimonialsLoaded) {
+          // Get different number of testimonials based on screen size
+          final displayedTestimonials =
+              _getDisplayedTestimonials(context, state.testimonials);
+
+          return SectionWidget(
+            title: 'Testimonials',
+            child: _buildTestimonialLayout(context, displayedTestimonials),
+          );
+        }
+
+        return const SizedBox.shrink();
+      },
     );
   }
 

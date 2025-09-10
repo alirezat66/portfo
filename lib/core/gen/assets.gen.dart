@@ -23,8 +23,11 @@ class $AssetsDataGen {
   /// File path: assets/data/profile.json
   String get profile => 'assets/data/profile.json';
 
+  /// File path: assets/data/testimonials.json
+  String get testimonials => 'assets/data/testimonials.json';
+
   /// List of all assets
-  List<String> get values => [companies, profile];
+  List<String> get values => [companies, profile, testimonials];
 }
 
 class $AssetsIconsGen {

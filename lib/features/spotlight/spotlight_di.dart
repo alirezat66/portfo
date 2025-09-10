@@ -1,5 +1,5 @@
 import '../../../core/di/service_locator.dart';
-import 'models/repositories/spotlight_repository.dart';
+import 'model/repositories/spotlight_repository.dart';
 import 'view_model/spotlight_cubit.dart';
 
 void configureSpotlightDependencies() {

@@ -1,5 +1,5 @@
 import '../../../core/di/service_locator.dart';
-import 'models/repositories/companies_repository.dart';
+import 'model/repositories/companies_repository.dart';
 import 'view_model/companies_cubit.dart';
 
 void configureCompaniesDependencies() {

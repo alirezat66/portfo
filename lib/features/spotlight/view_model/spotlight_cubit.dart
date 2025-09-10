@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../models/data/profile.dart';
-import '../models/repositories/spotlight_repository.dart';
+import '../model/data/profile.dart';
+import '../model/repositories/spotlight_repository.dart';
 
 // States
 abstract class SpotlightState extends Equatable {

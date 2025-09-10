@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
-import 'package:portfolio/features/spotlight/models/data/profile.dart';
+import 'package:portfolio/features/spotlight/model/data/profile.dart';
 import 'package:portfolio/features/spotlight/view/widgets/profile_info_highlight.dart';
 import 'package:portfolio/widgets/availability_widget.dart';
 import 'package:portfolio/widgets/responsive_content.dart';

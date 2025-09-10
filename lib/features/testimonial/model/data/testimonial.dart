@@ -1,18 +1,33 @@
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:portfolio/core/gen/assets.gen.dart';
-import 'package:portfolio/features/testimonial/model/colleague.dart';
+import 'colleague.dart';
 
-class Testimonial {
+part 'testimonial.g.dart';
+
+@JsonSerializable()
+class Testimonial extends Equatable {
   final Colleague colleague;
   final String quote;
   final String shortQuote;
   final String company;
   final String source;
-  Testimonial(
-      {required this.colleague,
-      required this.quote,
-      required this.company,
-      required this.shortQuote,
-      required this.source});
+
+  const Testimonial({
+    required this.colleague,
+    required this.quote,
+    required this.shortQuote,
+    required this.company,
+    required this.source,
+  });
+
+  factory Testimonial.fromJson(Map<String, dynamic> json) =>
+      _$TestimonialFromJson(json);
+  Map<String, dynamic> toJson() => _$TestimonialToJson(this);
+
+  @override
+  List<Object?> get props => [colleague, quote, shortQuote, company, source];
+
   static List<Testimonial> get testimonials => [
         Testimonial(
             colleague: Colleague(

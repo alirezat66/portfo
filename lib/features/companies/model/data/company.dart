@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part '../company.g.dart';
+part 'company.g.dart';
 
 @JsonSerializable()
 class Company extends Equatable {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
 import 'package:portfolio/core/view/widgets/card_widget.dart';
-import 'package:portfolio/features/testimonial/model/testimonial.dart';
+import 'package:portfolio/features/testimonial/model/data/testimonial.dart';
 
 class TestimonialWidget extends StatelessWidget {
   final Testimonial testimonial;
