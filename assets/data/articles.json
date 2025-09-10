@@ -1,0 +1,62 @@
+[
+    {
+        "id": "7",
+        "title": "Good Developer",
+        "excerpt": "The essential qualities of a programmer (and when it might be better to choose another path).",
+        "content": "Being a good developer goes beyond just writing code. It involves understanding the problem, thinking critically, and continuously learning. In this article, we explore the essential qualities that make a programmer successful...",
+        "author": "Reza Taghizadeh",
+        "publishDate": "2024-01-20",
+        "readTime": "20 min read",
+        "category": "Software Engineering",
+        "imageUrl": "assets/images/articles/developer.jpg",
+        "slug": "good-developer-essential-qualities",
+        "source": "https://medium.com/@reza.taghizadeh/good-developer-essential-qualities-132407287542",
+        "tags": [
+            "Software Engineering"
+        ],
+        "isPublished": true,
+        "views": 3200,
+        "likes": 245
+    },
+    {
+        "id": "8",
+        "title": "Publish a Package",
+        "excerpt": "How we can publish a package in pub.dev, it is a guide step by step",
+        "content": "Publishing a Flutter package to pub.dev is a great way to contribute to the Flutter ecosystem. This step-by-step guide will walk you through the entire process of creating and publishing your own package...",
+        "author": "Reza Taghizadeh",
+        "publishDate": "2024-01-18",
+        "readTime": "10 min read",
+        "category": "Flutter",
+        "imageUrl": "assets/images/articles/publish.jpg",
+        "slug": "publish-flutter-package-pub-dev-guide",
+        "tags": [
+            "Flutter",
+            "Dart",
+            "Pub.dev"
+        ],
+        "isPublished": true,
+        "source": "https://medium.com/@alirezataghizadeh66/create-a-flutter-package-and-publish-it-in-pub-dev-f376c300ce90",
+        "views": 2800,
+        "likes": 198
+    },
+    {
+        "id": "9",
+        "title": "Device Administration Permission",
+        "excerpt": "How we can get this permission in android devices when we need it.",
+        "content": "Device Administration permissions in Android allow apps to perform administrative tasks on the device. This article explains how to request and handle device administration permissions properly...",
+        "author": "Reza Taghizadeh",
+        "publishDate": "2024-01-16",
+        "readTime": "12 min read",
+        "category": "Android",
+        "imageUrl": "assets/images/articles/permission.jpg",
+        "slug": "device-administration-permission-android",
+        "tags": [
+            "Android",
+            "Kotlin"
+        ],
+        "isPublished": true,
+        "source": "https://medium.com/@alirezataghizadeh66/show-device-administration-dialog-in-android-67a623eba21d",
+        "views": 2100,
+        "likes": 156
+    }
+]

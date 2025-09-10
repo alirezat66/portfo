@@ -6,7 +6,7 @@ import 'package:portfolio/features/companies/view/company_list_view.dart';
 import 'package:portfolio/features/spotlight/view/spotlight_view.dart';
 import 'package:portfolio/features/projects/widgets/latest_projects_section.dart';
 import 'package:portfolio/features/testimonial/view/testimonial_section.dart';
-import 'package:portfolio/features/articles/widgets/latest_articles_section.dart';
+import 'package:portfolio/features/articles/view/latest_articles_section.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 import '../../../core/di/service_locator.dart';
 import '../../navigation/view_model/bloc/navigation_cubit.dart';

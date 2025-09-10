@@ -4,6 +4,7 @@ import '../../features/portfolio/portfolio_di.dart';
 import '../../features/spotlight/spotlight_di.dart';
 import '../../features/companies/companies_di.dart';
 import '../../features/testimonial/testimonials_di.dart';
+import '../../features/articles/articles_di.dart';
 
 final getIt = GetIt.instance;
 
@@ -13,4 +14,5 @@ void setupServiceLocator() {
   configureSpotlightDependencies();
   configureCompaniesDependencies();
   configureTestimonialsDependencies();
+  configureArticlesDependencies();
 }

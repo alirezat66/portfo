@@ -17,6 +17,9 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsDataGen {
   const $AssetsDataGen();
 
+  /// File path: assets/data/articles.json
+  String get articles => 'assets/data/articles.json';
+
   /// File path: assets/data/companies.json
   String get companies => 'assets/data/companies.json';
 
@@ -27,7 +30,7 @@ class $AssetsDataGen {
   String get testimonials => 'assets/data/testimonials.json';
 
   /// List of all assets
-  List<String> get values => [companies, profile, testimonials];
+  List<String> get values => [articles, companies, profile, testimonials];
 }
 
 class $AssetsIconsGen {
@@ -57,6 +60,9 @@ class $AssetsIconsGen {
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// Directory path: assets/images/articles
+  $AssetsImagesArticlesGen get articles => const $AssetsImagesArticlesGen();
 
   /// Directory path: assets/images/companies
   $AssetsImagesCompaniesGen get companies => const $AssetsImagesCompaniesGen();
@@ -157,6 +163,25 @@ class $AssetsIconsSkillsGen {
         node,
         swift
       ];
+}
+
+class $AssetsImagesArticlesGen {
+  const $AssetsImagesArticlesGen();
+
+  /// File path: assets/images/articles/developer.jpg
+  AssetGenImage get developer =>
+      const AssetGenImage('assets/images/articles/developer.jpg');
+
+  /// File path: assets/images/articles/permission.jpg
+  AssetGenImage get permission =>
+      const AssetGenImage('assets/images/articles/permission.jpg');
+
+  /// File path: assets/images/articles/publish.jpg
+  AssetGenImage get publish =>
+      const AssetGenImage('assets/images/articles/publish.jpg');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [developer, permission, publish];
 }
 
 class $AssetsImagesCompaniesGen {
@@ -356,6 +381,10 @@ class Assets {
   static const $AssetsDataGen data = $AssetsDataGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const SvgGenImage simpleTest = SvgGenImage('simple_test.svg');
+
+  /// List of all assets
+  static List<SvgGenImage> get values => [simpleTest];
 }
 
 class AssetGenImage {

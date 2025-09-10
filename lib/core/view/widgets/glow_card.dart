@@ -59,41 +59,46 @@ class _GlowCardState extends State<GlowCard> {
   }
 
   Widget _buildCardContent(BuildContext context, bool enableHover) {
-    return Stack(
-      children: [
-        // Card with static border
-        GestureDetector(
-          onTap: () => widget.onTap?.call(),
-          child: Container(
-            decoration: BoxDecoration(
-              color: context.basicColors.backgroundColor,
-              borderRadius: BorderRadius.circular(widget.borderRadius ?? 16),
-              border: Border.all(
-                color:
-                    widget.borderColor ?? context.basicColors.surfaceBrandColor,
-                width: widget.borderWidth ?? 3,
-              ),
-            ),
-            child: widget.child,
-          ),
-        ),
-        // Glow effect (only on desktop/laptop)
-        if (enableHover)
-          Positioned.fill(
-            child: AnimatedOpacity(
-              opacity: _isHovered ? 1.0 : 0.0,
-              duration: const Duration(milliseconds: 500),
-              child: CustomPaint(
-                painter: GlowPainter(
-                  pointerPosition: _pointerPosition,
-                  color: context.basicColors
-                      .surfaceBrandColor, // #FFFDBA72 with 45% opacity
+    return InkWell(
+      onTap: () {
+        widget.onTap?.call();
+      },
+      child: Stack(
+        children: [
+          // Card with static border
+          GestureDetector(
+            onTap: () => widget.onTap?.call(),
+            child: Container(
+              decoration: BoxDecoration(
+                color: context.basicColors.backgroundColor,
+                borderRadius: BorderRadius.circular(widget.borderRadius ?? 16),
+                border: Border.all(
+                  color: widget.borderColor ??
+                      context.basicColors.surfaceBrandColor,
+                  width: widget.borderWidth ?? 3,
                 ),
-                child: Container(),
               ),
+              child: widget.child,
             ),
           ),
-      ],
+          // Glow effect (only on desktop/laptop)
+          if (enableHover)
+            Positioned.fill(
+              child: AnimatedOpacity(
+                opacity: _isHovered ? 1.0 : 0.0,
+                duration: const Duration(milliseconds: 500),
+                child: CustomPaint(
+                  painter: GlowPainter(
+                    pointerPosition: _pointerPosition,
+                    color: context.basicColors
+                        .surfaceBrandColor, // #FFFDBA72 with 45% opacity
+                  ),
+                  child: Container(),
+                ),
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
@@ -110,7 +115,6 @@ class GlowPainter extends CustomPainter {
         math.atan2(pointerPosition.dy, pointerPosition.dx) * 180 / math.pi + 70;
     final adjustedAngle = (angle + 360) % 360;
 
-
     final path = Path()
       ..addRRect(
         RRect.fromRectAndRadius(
@@ -125,7 +129,7 @@ class GlowPainter extends CustomPainter {
       ..shader = SweepGradient(
         colors: [
           Colors.transparent,
-          color.withValues(alpha: 0.12), // Equivalent to #ffffff1f
+          color.withOpacity(0.12), // Equivalent to #ffffff1f
           color,
           Colors.transparent,
         ],
