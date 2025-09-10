@@ -32,7 +32,7 @@ class AppNavigationBar extends StatelessWidget implements PreferredSizeWidget {
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: context.colorScheme.surface,
+                color: context.basicColors.backgroundColor,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Padding(

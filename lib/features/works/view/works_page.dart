@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/di/service_locator.dart';
 import 'package:portfolio/core/view/theme/theme_extension.dart';
-import 'package:portfolio/features/navigation/view/widgets/app_navigation_bar.dart';
 import 'package:portfolio/features/works/model/data/work_item.dart';
 import 'package:portfolio/features/works/view_model/works_cubit.dart';
 import 'package:portfolio/features/works/view_model/works_state.dart';
@@ -14,82 +13,79 @@ class WorksPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => getIt<WorksCubit>()..loadWorks(),
-        child: Scaffold(
-          appBar: const AppNavigationBar(),
-          body: BlocBuilder<WorksCubit, WorksState>(
-            builder: (context, state) {
-              return ResponsiveContent(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Header
-                      Text(
-                        'My Works',
-                        style:
-                            Theme.of(context).textTheme.headlineLarge?.copyWith(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        'A showcase of my recent projects and contributions',
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              color: Colors.grey[400],
-                            ),
-                      ),
-                      const SizedBox(height: 48),
-
-                      // Works Grid
-                      if (state.isLoading)
-                        const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      else if (state.hasError)
-                        Center(
-                          child: Column(
-                            children: [
-                              Icon(
-                                Icons.error_outline,
-                                size: 64,
-                                color: Colors.red[300],
-                              ),
-                              const SizedBox(height: 16),
-                              Text(
-                                'Failed to load works',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineSmall
-                                    ?.copyWith(
-                                      color: Colors.red[300],
-                                    ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                state.errorMessage ?? 'Unknown error occurred',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium
-                                    ?.copyWith(
-                                      color: Colors.grey[400],
-                                    ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                        )
-                      else
-                        _buildWorksGrid(context, state.works),
-                    ],
+      create: (context) => getIt<WorksCubit>()..loadWorks(),
+      child: BlocBuilder<WorksCubit, WorksState>(
+        builder: (context, state) {
+          return ResponsiveContent(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Header
+                  Text(
+                    'My Works',
+                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
-                ),
-              );
-            },
-          ),
-        ));
+                  const SizedBox(height: 8),
+                  Text(
+                    'A showcase of my recent projects and contributions',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.grey[400],
+                        ),
+                  ),
+                  const SizedBox(height: 48),
+
+                  // Works Grid
+                  if (state.isLoading)
+                    const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  else if (state.hasError)
+                    Center(
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.error_outline,
+                            size: 64,
+                            color: Colors.red[300],
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            'Failed to load works',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall
+                                ?.copyWith(
+                                  color: Colors.red[300],
+                                ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            state.errorMessage ?? 'Unknown error occurred',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  color: Colors.grey[400],
+                                ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    )
+                  else
+                    _buildWorksGrid(context, state.works),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 
   Widget _buildWorksGrid(BuildContext context, List<WorkItem> works) {
