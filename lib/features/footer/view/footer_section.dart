@@ -33,10 +33,8 @@ class FooterSectionContent extends StatelessWidget {
             color: context.basicColors.backgroundColor,
             child: ResponsiveContent(
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 40),
-                child:_buildDesktopFooter(context, state.footerData)
-                    
-              ),
+                  padding: const EdgeInsets.symmetric(vertical: 40),
+                  child: _buildDesktopFooter(context, state.footerData)),
             ),
           );
         }
