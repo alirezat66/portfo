@@ -4,7 +4,6 @@ import 'package:portfolio/core/di/service_locator.dart';
 import 'package:portfolio/core/view/widgets/section_widget.dart';
 import 'package:portfolio/features/articles/view_model/articles_cubit.dart';
 import 'package:portfolio/features/articles/view/widgets/article_card.dart';
-import 'package:portfolio/widgets/responsive_content.dart';
 
 class LatestArticlesSection extends StatelessWidget {
   const LatestArticlesSection({super.key});
@@ -72,28 +71,35 @@ class LatestArticlesContent extends StatelessWidget {
   }
 
   Widget _buildArticlesGrid(BuildContext context, List articles) {
-    if (articles.isEmpty) {
-      return const SizedBox(
-        height: 200,
-        child: Center(
-          child: Text('No articles available'),
-        ),
+    return LayoutBuilder(builder: (context, constraints) {
+      final screenWidth = constraints.maxWidth;
+      int cardsPerRow;
+      double spacing;
+
+      if (screenWidth > 1200) {
+        cardsPerRow = 3;
+        spacing = 24.0;
+      } else if (screenWidth > 800) {
+        cardsPerRow = 2;
+        spacing = 20.0;
+      } else {
+        cardsPerRow = 1;
+        spacing = 16.0;
+      }
+
+      final cardWidth =
+          (screenWidth - (cardsPerRow - 1) * spacing) / cardsPerRow;
+
+      return Wrap(
+        spacing: spacing,
+        runSpacing: spacing,
+        children: articles.map((article) {
+          return SizedBox(
+            width: cardWidth,
+            child: ArticleCard(article: article),
+          );
+        }).toList(),
       );
-    }
-    if (context.isTablet || context.isMobile) {
-      return Column(
-        spacing: 24,
-        children:
-            articles.map((article) => ArticleCard(article: article)).toList(),
-      );
-    }
-    return IntrinsicHeight(
-      child: Row(
-        spacing: 24,
-        children: articles
-            .map((article) => Expanded(child: ArticleCard(article: article)))
-            .toList(),
-      ),
-    );
+    });
   }
 }

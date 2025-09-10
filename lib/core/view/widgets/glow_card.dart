@@ -129,7 +129,7 @@ class GlowPainter extends CustomPainter {
       ..shader = SweepGradient(
         colors: [
           Colors.transparent,
-          color.withOpacity(0.12), // Equivalent to #ffffff1f
+          color.withValues(alpha: 0.12), // Equivalent to #ffffff1f
           color,
           Colors.transparent,
         ],
