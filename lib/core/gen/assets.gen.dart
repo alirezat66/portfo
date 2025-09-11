@@ -32,6 +32,9 @@ class $AssetsDataGen {
   /// File path: assets/data/footer.json
   String get footer => 'assets/data/footer.json';
 
+  /// File path: assets/data/github_history.json
+  String get githubHistory => 'assets/data/github_history.json';
+
   /// File path: assets/data/profile.json
   String get profile => 'assets/data/profile.json';
 
@@ -42,8 +45,17 @@ class $AssetsDataGen {
   String get works => 'assets/data/works.json';
 
   /// List of all assets
-  List<String> get values =>
-      [about, articles, companies, cv, footer, profile, testimonials, works];
+  List<String> get values => [
+        about,
+        articles,
+        companies,
+        cv,
+        footer,
+        githubHistory,
+        profile,
+        testimonials,
+        works
+      ];
 }
 
 class $AssetsIconsGen {

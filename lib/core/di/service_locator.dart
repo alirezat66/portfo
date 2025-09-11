@@ -8,6 +8,7 @@ import '../../features/articles/articles_di.dart';
 import '../../features/about/about_di.dart';
 import '../../features/footer/footer_di.dart';
 import '../../features/works/works_di.dart';
+import '../../features/github_calendar/github_calendar_di.dart';
 
 final getIt = GetIt.instance;
 
@@ -21,4 +22,5 @@ void setupServiceLocator() {
   configureAboutDependencies();
   configureFooterDependencies();
   configureWorksDependencies();
+  configureGitHubCalendarDependencies();
 }

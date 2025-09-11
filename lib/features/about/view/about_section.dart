@@ -9,6 +9,7 @@ import 'package:portfolio/features/about/view/views/skill/skill_view.dart';
 import 'package:portfolio/features/about/view/views/social_view.dart';
 import 'package:portfolio/features/about/view/views/work_experience_view.dart';
 import 'package:portfolio/features/about/view_model/about_cubit.dart';
+import 'package:portfolio/features/github_calendar/view/github_history_section.dart';
 import 'package:portfolio/widgets/responsive_content.dart';
 
 class AboutSection extends StatelessWidget {
@@ -75,47 +76,53 @@ class AboutSectionContent extends StatelessWidget {
   }
 
   Widget _buildDesktopAndLaptop(BuildContext context, aboutData) {
-    return IntrinsicHeight(
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 24,
-        children: [
-          Expanded(
-            flex: 1,
-            child: ExperienceView(aboutData: aboutData),
-          ),
-          Expanded(
-            flex: 2,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 16,
-              children: [
-                IntrinsicHeight(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    spacing: 12,
-                    children: [
-                      if (context.isDesktop)
-                        Expanded(
-                          flex: 1,
-                          child: SocialView(aboutData: aboutData),
-                        ),
-                      Expanded(
-                        flex: 2,
-                        child: AboutMeView(aboutData: aboutData),
+    return Column(
+      spacing: 24,
+      children: [
+        IntrinsicHeight(
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 24,
+            children: [
+              Expanded(
+                flex: 1,
+                child: ExperienceView(aboutData: aboutData),
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 16,
+                  children: [
+                    IntrinsicHeight(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        spacing: 12,
+                        children: [
+                          if (context.isDesktop)
+                            Expanded(
+                              flex: 1,
+                              child: SocialView(aboutData: aboutData),
+                            ),
+                          Expanded(
+                            flex: 2,
+                            child: AboutMeView(aboutData: aboutData),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Expanded(
+                      child: SkillView(aboutData: aboutData),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: SkillView(aboutData: aboutData),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+        const GitHubHistorySection(),
+      ],
     );
   }
 
@@ -136,6 +143,7 @@ class AboutSectionContent extends StatelessWidget {
           ),
         ),
         SkillView(aboutData: aboutData),
+        const GitHubHistorySection(),
       ],
     );
   }
