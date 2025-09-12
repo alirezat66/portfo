@@ -24,6 +24,7 @@ class GitHubCalendarCubit extends Cubit<GitHubCalendarState> {
         hasError: false,
       ));
     } catch (e) {
+      print('Error: $e');
       emit(state.copyWith(
         isLoading: false,
         hasError: true,
