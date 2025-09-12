@@ -1,7 +1,7 @@
 name: portfolio
 description: "A new Flutter project."
-publish_to: 'none'
-version: 0.1.0
+publish_to: 'taghizadeh.dev'
+version: 0.1.1
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

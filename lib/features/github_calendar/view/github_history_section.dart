@@ -31,20 +31,20 @@ class GitHubHistorySection extends StatelessWidget {
                   Icon(
                     Icons.error_outline,
                     size: 64,
-                    color: Colors.red[300],
+                    color: Colors.amber[300],
                   ),
                   const SizedBox(height: 16),
                   Text(
                     'Failed to load GitHub history',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          color: Colors.red[300],
+                          color: Colors.amber[300],
                         ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     state.errorMessage ?? 'Unknown error occurred',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Colors.grey[400],
+                          color: Colors.amber[400],
                         ),
                     textAlign: TextAlign.center,
                   ),
