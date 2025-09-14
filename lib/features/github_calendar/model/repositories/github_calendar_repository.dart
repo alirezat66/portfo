@@ -5,8 +5,10 @@ import '../data/github_activity.dart';
 
 /// Keeps the same interface you used before.
 abstract class GitHubCalendarRepository {
-  Future<List<GitHubYearData>> getGitHubHistory(String username,
-      {bool debug = false});
+  Future<List<GitHubYearData>> getGitHubHistory(
+    String username, {
+    bool debug = false,
+  });
 }
 
 /// Implementation that talks to YOUR Node API.
@@ -21,19 +23,21 @@ class GitHubCalendarRepositoryImpl implements GitHubCalendarRepository {
   });
 
   @override
-  Future<List<GitHubYearData>> getGitHubHistory(String username,
-      {bool debug = false}) async {
+  Future<List<GitHubYearData>> getGitHubHistory(
+    String username, {
+    bool debug = false,
+  }) async {
     if (username.trim().isEmpty) {
       throw ArgumentError('username is required');
     }
 
-    final uri = Uri.parse('$baseUrl/api/github/calendar/$username')
-        .replace(queryParameters: {if (debug) 'debug': '1'});
+    final uri = Uri.parse(
+      '$baseUrl/api/github/calendar/$username',
+    ).replace(queryParameters: {if (debug) 'debug': '1'});
 
-    final res = await http.get(
-      uri,
-      headers: const {'Accept': 'application/json'},
-    ).timeout(timeout);
+    final res = await http
+        .get(uri, headers: const {'Accept': 'application/json'})
+        .timeout(timeout);
 
     if (res.statusCode != 200) {
       throw Exception('API ${res.statusCode}: ${res.body}');
@@ -54,7 +58,8 @@ class GitHubCalendarRepositoryImpl implements GitHubCalendarRepository {
       }
       if (decoded['years'] is List) {
         yearsJson = List<dynamic>.from(
-            decoded['years']); // debug success (object shape)
+          decoded['years'],
+        ); // debug success (object shape)
       } else {
         throw Exception('Unexpected API response: ${res.body}');
       }
@@ -66,8 +71,9 @@ class GitHubCalendarRepositoryImpl implements GitHubCalendarRepository {
     final years = <GitHubYearData>[];
     for (final y in yearsJson) {
       if (y is! Map<String, dynamic>) continue;
-      final year =
-          y['year'] is int ? y['year'] as int : int.parse('${y['year']}');
+      final year = y['year'] is int
+          ? y['year'] as int
+          : int.parse('${y['year']}');
       final activitiesJson = (y['activities'] as List?) ?? const [];
       final activities = activitiesJson.map((a) {
         final m = a as Map<String, dynamic>;

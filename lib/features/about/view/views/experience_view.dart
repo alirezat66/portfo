@@ -7,10 +7,7 @@ import 'package:portfolio/features/about/view/widgets/work_summery_card.dart';
 class ExperienceView extends StatelessWidget {
   final AboutData aboutData;
 
-  const ExperienceView({
-    super.key,
-    required this.aboutData,
-  });
+  const ExperienceView({super.key, required this.aboutData});
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +24,13 @@ class ExperienceView extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              ...aboutData.workExperience
-                  .map((work) => WorkSummeryCard(work: work)),
+              ...aboutData.workExperience.map(
+                (work) => WorkSummeryCard(work: work),
+              ),
             ],
           ),
         ),
-        ExperienceYears(aboutData: aboutData)
+        ExperienceYears(aboutData: aboutData),
       ],
     );
   }
