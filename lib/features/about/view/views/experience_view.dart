@@ -15,19 +15,21 @@ class ExperienceView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       spacing: 12,
       children: [
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              color: context.basicColors.backgroundColor,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            padding: const EdgeInsets.all(16),
-            child: Column(children: [
+        Container(
+          decoration: BoxDecoration(
+            color: context.basicColors.backgroundColor,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
               ...aboutData.workExperience
                   .map((work) => WorkSummeryCard(work: work)),
-            ]),
+            ],
           ),
         ),
         ExperienceYears(aboutData: aboutData)
