@@ -1,6 +1,6 @@
-import 'dart:html' as html;
 import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:web/web.dart' as web;
 
 class DownloadService {
   static Future<void> downloadPdf(String assetPath, String fileName) async {
@@ -19,10 +19,11 @@ class DownloadService {
 
   static Future<void> _downloadPdfWeb(String assetPath, String fileName) async {
     try {
-      // Create a downloadable link using dart:html
-      html.AnchorElement(href: assetPath)
-        ..setAttribute('download', fileName)
-        ..click();
+      // Create a downloadable link using package:web
+      final anchor = web.HTMLAnchorElement()
+        ..href = assetPath
+        ..download = fileName;
+      anchor.click();
     } catch (e) {
       throw Exception('Failed to download PDF on web: $e');
     }
