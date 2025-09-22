@@ -47,10 +47,8 @@ class ProfileImage extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: Center(
-                    child: Image.asset(profile.profileImagePath)
-                        .changeWidgetOnHover(
-                            duration: const Duration(milliseconds: 500),
-                            Image.asset(profile.profileImageHoverPath)),
+                    child: _buildProfileImage(profile.profileImagePath,
+                        profile.profileImageHoverPath),
                   ),
                 ),
               ), // Social media icons container
@@ -83,6 +81,34 @@ class ProfileImage extends StatelessWidget {
               ),
             ],
           );
+  }
+
+  Widget _buildProfileImage(String imageUrl, String hoverImageUrl) {
+    if (imageUrl.isEmpty) {
+      return const Icon(Icons.person, size: 100);
+    }
+
+    // Check if it's a network URL or local asset
+    if (imageUrl.startsWith('http')) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(1000), // Make it circular
+        child: Image.network(
+          imageUrl,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) {
+            return const Icon(Icons.person, size: 100);
+          },
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
+            return const Center(
+              child: CircularProgressIndicator(strokeWidth: 2),
+            );
+          },
+        ).changeWidgetOnHover(Image.network(hoverImageUrl)),
+      );
+    } else {
+      return Image.asset(imageUrl);
+    }
   }
 
   Social _createSocialFromLink(SocialLink socialLink) {
