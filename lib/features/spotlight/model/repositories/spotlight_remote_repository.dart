@@ -1,32 +1,25 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:portfolio/features/spotlight/model/repositories/spotlight_repository.dart';
 import '../data/profile.dart';
 import '../../../../core/models/availability_status.dart';
+import '../../../../core/network/network_client.dart';
+import '../../../../core/network/network_config.dart';
 
 class SpotlightRemoteRepositoryImpl implements SpotlightRepository {
-  final String baseUrl;
-  final Duration timeout;
+  final NetworkClient _networkClient;
 
   SpotlightRemoteRepositoryImpl({
-    this.baseUrl = 'https://cms.taghizadeh.dev',
-    this.timeout = const Duration(seconds: 10),
-  });
+    NetworkClient? networkClient,
+  }) : _networkClient = networkClient ??
+            NetworkClient(
+              baseUrl: NetworkConfig.cmsBaseUrl,
+              timeout: NetworkConfig.defaultTimeout,
+            );
 
   @override
   Future<Profile> getProfile() async {
     try {
-      final uri = Uri.parse('$baseUrl/api/spotLight?populate=all');
-
-      final response = await http.get(uri,
-          headers: const {'Accept': 'application/json'}).timeout(timeout);
-
-      if (response.statusCode != 200) {
-        throw Exception(
-            'Failed to fetch spotlight data: ${response.statusCode}');
-      }
-
-      final Map<String, dynamic> jsonData = json.decode(response.body);
+      final jsonData =
+          await _networkClient.get(NetworkConfig.spotlightEndpoint);
       final spotlightData = jsonData['data'];
 
       // Convert backend data to existing Profile model

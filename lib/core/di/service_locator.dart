@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import '../network/network_client.dart';
 import '../../features/navigation/navigation_di.dart';
 import '../../features/portfolio/portfolio_di.dart';
 import '../../features/spotlight/spotlight_di.dart';
@@ -13,6 +14,11 @@ import '../../features/github_calendar/github_calendar_di.dart';
 final getIt = GetIt.instance;
 
 void setupServiceLocator() {
+  // Register Network Client
+  getIt.registerLazySingleton<NetworkClient>(
+    () => NetworkClient(),
+  );
+
   setupNavigationDI();
   setupPortfolioDI();
   configureSpotlightDependencies();
