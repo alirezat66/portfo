@@ -32,9 +32,6 @@ class $AssetsDataGen {
   /// File path: assets/data/footer.json
   String get footer => 'assets/data/footer.json';
 
-  /// File path: assets/data/github_history.json
-  String get githubHistory => 'assets/data/github_history.json';
-
   /// File path: assets/data/profile.json
   String get profile => 'assets/data/profile.json';
 
@@ -45,17 +42,8 @@ class $AssetsDataGen {
   String get works => 'assets/data/works.json';
 
   /// List of all assets
-  List<String> get values => [
-        about,
-        articles,
-        companies,
-        cv,
-        footer,
-        githubHistory,
-        profile,
-        testimonials,
-        works
-      ];
+  List<String> get values =>
+      [about, articles, companies, cv, footer, profile, testimonials, works];
 }
 
 class $AssetsIconsGen {
@@ -387,10 +375,6 @@ class $AssetsImagesWorksOracliumGen {
 class $AssetsImagesWorksRemotedermGen {
   const $AssetsImagesWorksRemotedermGen();
 
-  /// File path: assets/images/works/remotederm/oraclium_three.png
-  AssetGenImage get oracliumThree =>
-      const AssetGenImage('assets/images/works/remotederm/oraclium_three.png');
-
   /// File path: assets/images/works/remotederm/remotederm_main.png
   AssetGenImage get remotedermMain =>
       const AssetGenImage('assets/images/works/remotederm/remotederm_main.png');
@@ -400,8 +384,7 @@ class $AssetsImagesWorksRemotedermGen {
       const AssetGenImage('assets/images/works/remotederm/remotederm_two.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [oracliumThree, remotedermMain, remotedermTwo];
+  List<AssetGenImage> get values => [remotedermMain, remotedermTwo];
 }
 
 class $AssetsImagesWorksTuktoroGen {

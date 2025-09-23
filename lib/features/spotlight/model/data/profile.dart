@@ -29,6 +29,22 @@ class Profile extends Equatable {
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
 
+  /// Create Profile from API response data
+  factory Profile.fromApiData(Map<String, dynamic> apiData) {
+    final spotlightData = apiData['data'];
+
+    return Profile(
+      name: spotlightData['name'] ?? '',
+      title: _formatMainDescription(spotlightData['mainDescription'] ?? ''),
+      description: spotlightData['subDescription'] ?? '',
+      profileImagePath: _getImageUrl(spotlightData['profileImage']),
+      profileImageHoverPath: _getImageUrl(spotlightData['profileImageHover']),
+      socialLinks: _convertSocialLinks(spotlightData['social_links']),
+      availabilityStatus:
+          _convertAvailabilityStatus(spotlightData['availibilityStatus']),
+    );
+  }
+
   Map<String, dynamic> toJson() => _$ProfileToJson(this);
 
   @override
@@ -41,6 +57,69 @@ class Profile extends Equatable {
         socialLinks,
         availabilityStatus,
       ];
+}
+
+// Helper methods for API data parsing
+String _formatMainDescription(String mainDescription) {
+  return mainDescription.replaceAll('\\n', '\n').replaceAll('*', '•').trim();
+}
+
+String _getImageUrl(dynamic imageData) {
+  if (imageData == null) return '';
+  if (imageData is Map<String, dynamic>) {
+    final url = imageData['url'] as String?;
+    return url != null ? 'https://cms.taghizadeh.dev$url' : '';
+  }
+  return '';
+}
+
+AvailabilityStatus _convertAvailabilityStatus(dynamic availabilityStatus) {
+  if (availabilityStatus == null) return AvailabilityStatus.available;
+
+  final status = availabilityStatus.toString().toLowerCase();
+  switch (status) {
+    case 'available':
+      return AvailabilityStatus.available;
+    case 'partiallyavailable':
+    case 'partially_available':
+      return AvailabilityStatus.partiallyAvailable;
+    case 'fullybusy':
+    case 'fully_busy':
+      return AvailabilityStatus.fullyBusy;
+    default:
+      return AvailabilityStatus.available;
+  }
+}
+
+List<SocialLink> _convertSocialLinks(dynamic socialLinksData) {
+  if (socialLinksData == null || socialLinksData is! List) {
+    return [];
+  }
+
+  return (socialLinksData).map((link) {
+    if (link is Map<String, dynamic>) {
+      return SocialLink(
+        name: link['name'] ?? '',
+        url: link['url'] ?? '',
+        iconPath: _getSocialIcon(link['name'] ?? ''),
+        tooltip: link['tooltip'] ?? '',
+      );
+    }
+    return SocialLink(name: '', url: '', iconPath: '', tooltip: '');
+  }).toList();
+}
+
+String _getSocialIcon(String name) {
+  switch (name.toLowerCase()) {
+    case 'github':
+      return 'assets/icons/github.svg';
+    case 'linkedin':
+      return 'assets/icons/linkedin.svg';
+    case 'youtube':
+      return 'assets/icons/youtube.svg';
+    default:
+      return 'assets/icons/github.svg';
+  }
 }
 
 @JsonSerializable()
